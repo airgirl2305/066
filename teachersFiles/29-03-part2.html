@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<!-- <link rel="stylesheet" href="print.css" media="print"> -->
+	<title>Медиазапросы</title>
+	<style>
+		.container {
+			width: 1210px;
+			margin: auto;
+		}
+		
+		.block {
+			display: inline-block;
+			width: 600px;
+		}
+		
+		.block img {
+			max-width: 100%;
+			height: auto;
+		}
+		
+		@media (orientation: portrait) {
+			body {
+				background-color: rgb(16, 198, 137);
+			}
+		}
+		
+		.secret {
+			display: none;
+			padding: 1rem;
+			text-align: center;
+			font-size: 1.5rem;
+			border: 1px solid green;
+			color: red;
+		}
+		
+		@media (max-width: 500px) {
+			.secret {
+				display: block;
+			}
+		}
+		
+		@media (max-width: 1220px) {
+			.container {
+				width: 100%;
+			}
+			
+			.block {
+				display: block;
+				width: 100%;
+			}
+			
+			.block p {
+				font-size: 1.25rem;
+			}
+		}
+		
+		/* @media screen and (min-width: 30em) and (orientation: portrait) {...} */
+		/* @media print {
+
+		} */
+		/* @media (условия) {
+
+		} */
+	</style>
+</head>
+<body>
+<section class="container">
+	<div class="block">
+		<img alt="" height="450px" src="img/sea.jpg" width="750px"/>
+	</div>
+	<div class="block">
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fuga architecto quidem
+			eveniet, molestias magni corporis vitae rerum totam illo hic reiciendis saepe vero
+			quisquam odio necessitatibus debitis dolorem libero.
+		</p>
+	</div>
+</section>
+<section class="secret">Ваш секретный код -ASEW867</section>
+</body>
+</html>

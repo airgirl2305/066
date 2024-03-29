@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+	<title>Каскадность и специфичность</title>
+	<style>
+		/* button {
+			color: red;
+		}
+		button {
+			color: blue;
+		} */
+		/* .btn {
+			font-size: 1.5rem;
+			padding: 1rem;
+			background-color: beige;
+		}
+		.btn-blog {
+			background-color: brown;
+		}
+		.btn-news {
+			background-color: chocolate;
+			padding: 2rem;
+		} */
+		p {
+			color: green;
+		}
+		
+		#blue {
+			color: blue;
+		}
+		
+		.red {
+			color: red;
+		}
+		
+		.blue {
+			color: blue;
+			font-size: 1.5rem;
+			font-size: clamp(1.5rem, calc(1rem + 3vw), 4rem);
+		}
+	</style>
+</head>
+<body>
+<div class="red blue">Текст</div>
+<div class="blue red">Текст</div>
+
+<p class="red" id="blue">Какого цвета будет параграф?</p>
+<!-- <button class="btn">Я кнопка. Какого я цвета?</button>
+<button class="btn btn-blog">Я кнопка. Какого я цвета?</button>
+<button class="btn btn-news">Я кнопка. Какого я цвета?</button> -->
+</body>
+</html>
