@@ -21,9 +21,11 @@
       width: 200px;
       height: 158px;
       position: relative;
-      /* top: 435px; */
+      /* top: 435px; костыль, вариант 1 - с общим top, float и расстояние уменьшено на 300px */
       padding: 15px;
+      /* float: left;  костыль, вариант 1  */
     }
+
     #I1,
     #II1,
     #III1,
@@ -88,7 +90,7 @@
     }
 
     #V1 {
-      top: 435px;
+      top: 435px; /* костыль, вариант 2 */
       left: 570px;
     }
     #IV2 {
@@ -109,10 +111,11 @@
       top: 65%;
       left: 71%;
     }
-    /* почему если я задаю прямоугольникам одинаковый top, 6ой ниже 5го? */
+
     #VI3 {
-      top: 280px;
+      top: 280px; /* костыль, вариант 2 - уменьшено на  155px */
       left: 1110px;
+      /* left: 900px; костыль, вариант 1 - уменьшено на  300px */
       background-color: #4bde93;
     }
   </style>
@@ -132,14 +135,15 @@
     <div class="square" id="IV1"></div>
     <div class="square" id="IV2"></div>
     <div class="square" id="IV3"></div>
+    <div class="rectangles">
+      <div class="rectangle" id="V1">
+        <div class="square" id="V2"></div>
+      </div>
 
-    <div class="rectangle" id="V1">
-      <div class="square" id="V2"></div>
-    </div>
-
-    <div class="rectangle" id="VI3">
-      <div class="square" id="VI1"></div>
-      <div class="square" id="VI2"></div>
+      <div class="rectangle" id="VI3">
+        <div class="square" id="VI1"></div>
+        <div class="square" id="VI2"></div>
+      </div>
     </div>
   </body>
 </html>
