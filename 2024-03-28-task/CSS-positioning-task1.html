@@ -12,20 +12,18 @@
     body {
       margin: 0;
     }
-
     .square {
       width: 40px;
       height: 40px;
       position: absolute;
     }
-
     .rectangle {
       width: 200px;
       height: 158px;
-      padding: 15px;
       position: relative;
+      /* top: 435px; */
+      padding: 15px;
     }
-
     #I1,
     #II1,
     #III1,
@@ -43,19 +41,7 @@
     #V1 {
       border: 2px solid #008001;
     }
-    #IV1 {
-      background-color: #ff0000;
-    }
-    #IV2 {
-      background-color: #8a2be2;
-      left: 40px;
-      top: 200px;
-    }
-    #IV3 {
-      background-color: #008001;
-      left: 10%;
-      top: 70%;
-    }
+
     #I1 {
       top: 31px;
       left: 30px;
@@ -68,90 +54,92 @@
       top: 120px;
       left: 120px;
     }
+
     #II1 {
-      left: 570px;
       top: 31px;
+      left: 570px;
     }
     #II2 {
-      left: 620px;
       top: 31px;
+      left: 620px;
     }
     #II3 {
+      top: 31px;
       left: 670px;
-      top: 31px;
     }
+
     #III1 {
-      left: 1100px;
       top: 31px;
+      left: 1100px;
     }
     #III2 {
-      left: 1123px;
       top: 55px;
+      left: 1123px;
     }
     #III3 {
-      left: 1146px;
       top: 79px;
+      left: 1146px;
     }
+
     #IV1 {
       top: 435px;
       left: 35px;
+      background-color: #ff0000;
+    }
+
+    #V1 {
+      top: 435px;
+      left: 570px;
     }
     #IV2 {
       top: 460px;
       left: 55px;
+      background-color: #8a2be2;
     }
     #IV3 {
       top: 484px;
       left: 75px;
+      background-color: #008001;
     }
     #VI1,
     #VI2 {
       background-color: white;
     }
     #VI2 {
-      left: 65%;
-      top: 90px;
+      top: 65%;
+      left: 71%;
     }
+    /* почему если я задаю прямоугольникам одинаковый top, 6ой ниже 5го? */
     #VI3 {
+      top: 280px;
+      left: 1110px;
       background-color: #4bde93;
-      padding: 30px;
     }
   </style>
   <body>
-    <div class="screen">
-      <div class="subtask" id="1">
-        <div class="square" id="I1"></div>
-        <div class="square" id="I2"></div>
-        <div class="square" id="I3"></div>
-      </div>
-      <div class="subtask" id="2">
-        <div class="square" id="II1"></div>
-        <div class="square" id="II2"></div>
-        <div class="square" id="II3"></div>
-      </div>
-      <div class="subtask" id="3">
-        <div class="square" id="III1"></div>
-        <div class="square" id="III2"></div>
-        <div class="square" id="III3"></div>
-      </div>
+    <div class="square" id="I1"></div>
+    <div class="square" id="I2"></div>
+    <div class="square" id="I3"></div>
 
-      <div class="subtask" id="4">
-        <div class="square" id="IV1"></div>
-        <div class="square" id="IV2"></div>
-        <div class="square" id="IV3"></div>
-      </div>
+    <div class="square" id="II1"></div>
+    <div class="square" id="II2"></div>
+    <div class="square" id="II3"></div>
 
-      <div class="subtask" id="5">
-        <div class="rectangle" id="V1">
-          <div class="square" id="V2"></div>
-        </div>
-      </div>
-      <div class="subtask" id="6">
-        <div class="rectangle" id="VI3">
-          <div class="square" id="VI1"></div>
-          <div class="square" id="VI2"></div>
-        </div>
-      </div>
+    <div class="square" id="III1"></div>
+    <div class="square" id="III2"></div>
+    <div class="square" id="III3"></div>
+
+    <div class="square" id="IV1"></div>
+    <div class="square" id="IV2"></div>
+    <div class="square" id="IV3"></div>
+
+    <div class="rectangle" id="V1">
+      <div class="square" id="V2"></div>
+    </div>
+
+    <div class="rectangle" id="VI3">
+      <div class="square" id="VI1"></div>
+      <div class="square" id="VI2"></div>
     </div>
   </body>
 </html>
