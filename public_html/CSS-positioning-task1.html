@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CSS positioning: task1, AskhabovaKV</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .square {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+    }
+
+    .rectangle {
+      width: 200px;
+      height: 158px;
+      position: relative;
+      top: 435px;
+      padding: 15px;
+    }
+
+    #I1,
+    #II1,
+    #III1,
+    #V2 {
+      border: 2px solid #ff0000;
+    }
+
+    #I2,
+    #II2,
+    #III2 {
+      border: 2px solid #f191f0;
+    }
+
+    #I3,
+    #II3,
+    #III3,
+    #V1 {
+      border: 2px solid #008001;
+    }
+
+    #I1 {
+      top: 31px;
+      left: 30px;
+    }
+
+    #I2 {
+      top: 75px;
+      left: 75px;
+    }
+
+    #I3 {
+      top: 120px;
+      left: 120px;
+    }
+
+    #II1 {
+      top: 31px;
+      left: 570px;
+    }
+
+    #II2 {
+      top: 31px;
+      left: 620px;
+    }
+
+    #II3 {
+      top: 31px;
+      left: 670px;
+    }
+
+    #III1 {
+      top: 31px;
+      left: 1100px;
+    }
+
+    #III2 {
+      top: 55px;
+      left: 1123px;
+    }
+
+    #III3 {
+      top: 79px;
+      left: 1146px;
+    }
+
+    #IV1 {
+      top: 435px;
+      left: 35px;
+      background-color: #ff0000;
+    }
+
+    #V1 {
+      left: 570px;
+      float: left; /* убрали из потока, чтобы не съезжал второй прямоугольник */
+    }
+
+    #IV2 {
+      top: 460px;
+      left: 55px;
+      background-color: #8a2be2;
+    }
+
+    #IV3 {
+      top: 484px;
+      left: 75px;
+      background-color: #008001;
+    }
+
+    #VI1,
+    #VI2 {
+      background-color: white;
+    }
+
+    #VI2 {
+      top: 65%;
+      left: 71%;
+    }
+
+    #VI3 {
+      left: 1110px;
+      background-color: #4bde93;
+    }
+  </style>
+  <body>
+    <div class="square" id="I1"></div>
+    <div class="square" id="I2"></div>
+    <div class="square" id="I3"></div>
+
+    <div class="square" id="II1"></div>
+    <div class="square" id="II2"></div>
+    <div class="square" id="II3"></div>
+
+    <div class="square" id="III1"></div>
+    <div class="square" id="III2"></div>
+    <div class="square" id="III3"></div>
+
+    <div class="square" id="IV1"></div>
+    <div class="square" id="IV2"></div>
+    <div class="square" id="IV3"></div>
+
+    <div class="rectangle" id="V1">
+      <div class="square" id="V2"></div>
+    </div>
+
+    <div class="rectangle" id="VI3">
+      <div class="square" id="VI1"></div>
+      <div class="square" id="VI2"></div>
+    </div>
+  </body>
+</html>

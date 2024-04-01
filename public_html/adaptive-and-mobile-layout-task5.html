@@ -1,0 +1,177 @@
+<!-- Задание 5. Адаптивная и мобильная верстка: 
+1. В дополнение к созданным на очном занятии блокам создать  ниже еще два дополнительных блока, использующие класс фреймворка Bootstrap, который позволяет занять 100% ширины экрана на любом разрешении.
+2. Внутри первого блока разместить три одинаковых карточки (блока), имеющие обводку и фон.
+3. Второй созданный блок, должен иметь фоновое изображение, карточку (блок), имеющую меньший размер и отцентрированную. Внутри этой карточки (блока) должен быть расположен текст. Карточку необходимо наделить обводкой, цветом, прозрачностью и тенью. Текст центрирован. -->
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <title>Adaptive and mobile layout: task5, AskhabovaKV</title>
+    <style>
+      .wrapper {
+        max-width: 1900px;
+        margin: auto;
+      }
+      .main-nav {
+        background-color: #247847;
+}      }
+      .card {
+        background-color:
+      
+    </style>
+  </head>
+  <body>
+    <!-- Header start -->
+    <header class="wrapper">
+      <nav class="navbar navbar-expand-lg navbar-dark main-nav">
+        <a class="navbar-brand" href="adaptive-and-mobile-layout-task5.html"
+          ><img src="src/img/logo.png" alt="Логотип" width="120"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Переключатель навигации"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="bootstrap.html"
+                >Главная <span class="sr-only">(текущая)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="traffic-light.html">Светофор</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Выпадающий список
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Действие</a>
+                <a class="dropdown-item" href="#">Другое действие</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Что-то еще здесь</a>
+              </div>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
+                >Отключенный</a
+              >
+            </li> -->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Поиск"
+              aria-label="Поиск"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <!-- Header end -->
+    <!-- Carousel start -->
+    <section class="wrapper mt-3">
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="src/img/carousel-1.webp" class="d-block w-100" alt="Изображение карусели" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Круизный тур Филиппины</h5>
+              <p><a href="#">Только сегодня скидка 20%</a></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="src/img/carousel-2.webp" class="d-block w-100" alt="Изображение карусели" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Тайланд райский отдых</h5>
+              <p><button class="btn btn-info">Купить тур</button></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="src/img/carousel-3.jpg" class="d-block w-100" alt="Изображение карусели" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Острова</h5>
+              <p>Отдых на островах вдали от цивилизации</p>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselExampleCaptions"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Предыдущий</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselExampleCaptions"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Следующий</span>
+        </a>
+      </div>
+    </section>
+    <!-- Carousel end -->
+
+    <!-- Blocs start -->
+    <section><div class="card">
+      <div class="card-body">
+        Это текст в теле карточки.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        Это текст в теле карточки.
+      </div>
+    </div><div class="card">
+      <div class="card-body">
+        Это текст в теле карточки.
+      </div>
+    </div></section>
+    <!-- Blocs end -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
