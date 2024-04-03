@@ -1,0 +1,261 @@
+<!-- Задание 7. Адаптивная и мобильная верстка:
+сверстать веб-страницу согласно макету в Figma (предоставлено на вебинарном занятии). Жестких требований по размерам блоков, цветам и изображениям нет. Примерное наглядное отображение контента, творческий подход приветствуется.
+
+Применение инструментов (фреймворка, библиотеки, и т.д.) на собственное усмотрение. -->
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <!-- Подключен Bootstrap -->
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      rel="stylesheet"
+    />
+    <!-- Подключен Bootstrap -->
+
+    <!-- Подключен fontawesome для фигурок телефона -->
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/dc4f8560f3.js"></script>
+    <!-- Подключен fontawesome для фигурок телефона -->
+
+    <!-- Подключен google fonts для Roboto шрифта -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Подключен google fonts для Roboto шрифта -->
+
+    <!-- Подключен Arial шрифт через css файл -->
+    <link href="src/css/arial.css" rel="stylesheet" />
+    <!-- Подключен Arial шрифт через css файл -->
+
+    <title>Главная. Интегратор</title>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        font-size: 20px;
+      }
+
+      .wrapper {
+        max-width: 1900px;
+        margin: auto;
+      }
+
+      h2,
+      .services,
+      footer {
+        font-family: Arial, sans-serif;
+      }
+
+      .main-nav {
+        font-size: 24px;
+        background-color: #343a40;
+        color: #868e96;
+        height: 110px;
+      }
+
+      .footer {
+        background-color: #343a40;
+        color: white;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      h1,
+      .services {
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      }
+
+      .col1-header,
+      .col2-header,
+      .col3-header {
+        font-size: 24px;
+        height: 174px;
+      }
+
+      .col1-header {
+        background-image: url(src/img/card1.png);
+      }
+
+      .col2-header {
+        background-image: url(src/img/card2.png);
+      }
+
+      .col3-header {
+        background-image: url(src/img/card3.png);
+      }
+
+      .text-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header start -->
+    <header class="wrapper">
+      <nav class="navbar navbar-expand-lg navbar-dark main-nav">
+        <button
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Переключатель навигации"
+          class="navbar-toggler"
+          data-target="#navbarSupportedContent"
+          data-toggle="collapse"
+          type="button"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ml-lg-5 mr-lg-3 active">
+              <a class="nav-link" href="adaptive-and-mobile-layout-task7.html"
+                >Главная <span class="sr-only">(текущая)</span></a
+              >
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a class="nav-link" href="#">Наши преимущества</a>
+            </li>
+            <li class="nav-item mr-lg-3">
+              <a class="nav-link" href="#">Порядок работы и цены</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> Контакты</a>
+            </li>
+          </ul>
+
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+            <a href="#">Задать вопрос дежурному эксперту</a>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!-- Header end -->
+    <!-- 2 sides section start -->
+    <section class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-left col-xl-4 p-0">
+            <img alt="Left side" class="img-fluid" src="src/img/Left side.png" />
+          </div>
+          <div class="col-right col">
+            <div class="phones d-flex justify-content-between mt-2">
+              <p><i class="fa-solid fa-phone"></i>+7-(926)-522-9192</p>
+              <p><i class="fa-solid fa-phone"></i>&nbsp;+7-(915)-121-04-44</p>
+            </div>
+            <h1 class="font-weight-bold text-center shad">ООО "Интегратор"</h1>
+            <h2 class="text-center">Основные виды услуг:</h2>
+            <p class="services shad">
+              - проверки достоверности финансовой (бухгалтерской) отчетности по международным
+              аудиторским стандартам <br />
+              - финансовый анализ деятельности организации с подготовкой письменной информации и
+              рекомендаций<br />
+              - выполнение целевых проверок по программе заказчика<br />
+              - участие в восстановлении бухгалтерского учета<br />
+              - консультационная помощь по вопросам аудита, бухгалтерского учета<br />
+              - подготовка экспертных заключений по финансово-хозяйственным вопросам по запросу
+              судебных органов
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 2 sides section end -->
+    <!-- 3 topics section start -->
+    <section>
+      <div class="container-fluid">
+        <div class="row p-0">
+          <div class="col p-0">
+            <div class="col1-header text-center">Some news about audit</div>
+            <div class="text-box text-justify p-2">
+              <p>
+                Собственники помещений в многоквартирном доме вправе выбрать один из следующих
+                способов формирования фонда капитального ремонта: 1) перечисление взносов на
+                капитальный ремонт на специальный счет в целях формирования фонда капитального
+                ремонта в виде денежных средств, находящихся на специальном счете (далее —
+                формирование фонда капитального ремонта на специальном счете); 2) перечисление
+                взносов на капитальный ремонт
+              </p>
+            </div>
+          </div>
+          <div class="col p-0">
+            <div class="col2-header text-center">Top news from insider</div>
+            <div class="text-box text-justify p-2">
+              Жилищно-коммунальная сфера хозяйствования представляет собой многоотраслевой сложный
+              комплекс, обеспечивающий жизнедеятельность населения и функционирование
+              социально-производственной инфраструктуры. Сами организации жилищно-коммунального
+              сектора выполняют функции посредника между производителями жилищных и коммунальных
+              услуг и их потребителями по содержанию и эксплуатации зданий и сооружений и
+              потреблению коммунальных услуг. Эта сфера затрагивает интересы большей части населения
+              городов и поселков страны.
+            </div>
+          </div>
+          <div class="col p-0">
+            <div class="col3-header text-center">Integration</div>
+            <div class="text-box text-justify p-2">
+              Начало нового года ассоциируется для бухгалтеров с подготовкой годовой отчетности.
+              Важным моментом такой подготовки является подтверждение остатков по банковским счетам
+              на начало года. Раньше это было обязательным условием, прежде всего для банков.
+              Ежегодно в начале года обслуживающие подразделения банков в обязательном порядке
+              выполняли подписанные обеими сторонами письменные подтверждения остатков по счетам
+              своих клиентов.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 3 topics section end -->
+
+    <!-- Footer start -->
+    <footer class="wrapper">
+      <div class="container-fluid p-3 footer">
+        <div class="text-center">&copy; &nbsp; Все права защищены ООО “Интегратор - 2022</div>
+        <div class="vk">
+          <svg
+            fill="#c4dc66"
+            height="24px"
+            id="Capa_1"
+            version="1.1"
+            viewBox="0 0 363.301 363.301"
+            width="24px"
+            xml:space="preserve"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M347.506,240.442c-7.91-9.495-16.899-18.005-25.592-26.235c-3.091-2.927-6.287-5.953-9.368-8.962 c-8.845-8.648-9.167-11.897-2.164-21.72c4.845-6.771,9.982-13.551,14.95-20.108c4.506-5.949,9.166-12.101,13.632-18.273l0.917-1.269 c8.536-11.811,17.364-24.024,22.062-38.757c1.22-3.887,2.501-9.607-0.428-14.39c-2.927-4.779-8.605-6.237-12.622-6.918 c-1.987-0.337-3.96-0.383-5.791-0.383l-55.901-0.04l-0.462-0.004c-8.452,0-14.148,3.983-17.412,12.178 c-3.116,7.83-6.539,16.168-10.445,24.096c-7.773,15.787-17.645,33.97-31.93,49.135l-0.604,0.645 c-1.687,1.813-3.598,3.866-4.995,3.866c-0.214,0-0.447-0.041-0.711-0.124c-2.959-1.153-4.945-8.316-4.855-11.648 c0.001-0.046,0.002-0.092,0.002-0.138l-0.039-64.61c0-0.224-0.016-0.446-0.045-0.668c-1.422-10.503-4.572-17.041-16.474-19.372 c-0.316-0.063-0.639-0.094-0.961-0.094h-58.126c-9.47,0-14.688,3.849-19.593,9.61c-1.324,1.54-4.08,4.746-2.714,8.635 c1.386,3.947,5.885,4.791,7.35,5.065c7.272,1.384,11.371,5.832,12.532,13.604c2.027,13.496,2.276,27.901,0.784,45.334 c-0.416,4.845-1.239,8.587-2.595,11.784c-0.315,0.746-1.432,3.181-2.571,3.182c-0.362,0-1.409-0.142-3.316-1.456 c-4.509-3.089-7.808-7.497-11.654-12.942c-13.084-18.491-24.065-38.861-33.575-62.288c-3.527-8.624-10.114-13.452-18.556-13.594 c-9.276-0.141-17.686-0.209-25.707-0.209c-8.764,0-16.889,0.081-24.823,0.246C8.914,83.74,4.216,85.776,1.744,89.676 c-2.476,3.903-2.315,9.03,0.479,15.236c22.366,49.723,42.645,85.876,65.755,117.228c16.193,21.938,32.435,37.123,51.109,47.784 c19.674,11.255,41.722,16.727,67.402,16.727c2.911,0,5.921-0.071,8.956-0.213c14.922-0.727,20.458-6.128,21.158-20.657 c0.333-7.425,1.145-15.212,4.795-21.853c2.304-4.184,4.452-4.184,5.158-4.184c1.36,0,3.046,0.626,4.857,1.799 c3.248,2.12,6.033,4.96,8.316,7.441c2.149,2.357,4.274,4.738,6.401,7.12c4.59,5.141,9.336,10.456,14.294,15.497 c10.852,11.041,22.807,15.897,36.538,14.843h51.252c0.109,0,0.219-0.004,0.328-0.011c5.107-0.337,9.53-3.17,12.135-7.772 c3.227-5.701,3.162-12.974-0.174-19.46C356.718,251.867,351.808,245.601,347.506,240.442z"
+              ></path>
+            </g>
+          </svg>
+          Мы на vk
+        </div>
+      </div>
+    </footer>
+    <!-- Footer end -->
+    <script
+      crossorigin="anonymous"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    ></script>
+    <script
+      crossorigin="anonymous"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
+</html>
