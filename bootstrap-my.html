@@ -1,7 +1,3 @@
-<!-- Задание 5. Адаптивная и мобильная верстка:
-1. В дополнение к созданным на очном занятии блокам создать  ниже еще два дополнительных блока, использующие класс фреймворка Bootstrap, который позволяет занять 100% ширины экрана на любом разрешении.
-2. Внутри первого блока разместить три одинаковых карточки (блока), имеющие обводку и фон.
-3. Второй созданный блок, должен иметь фоновое изображение, карточку (блок), имеющую меньший размер и отцентрированную. Внутри этой карточки (блока) должен быть расположен текст. Карточку необходимо наделить обводкой, цветом, прозрачностью и тенью. Текст центрирован. -->
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -13,7 +9,8 @@
       integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
       rel="stylesheet"
     />
-    <title>Adaptive and mobile layout: task5, AskhabovaKV</title>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/134030b512.js"></script>
+    <title>Главная - Компания</title>
     <style>
       .wrapper {
         max-width: 1900px;
@@ -24,17 +21,22 @@
         background-color: #247847;
       }
 
-      .block-1 {
-        height: 300px;
+      .blog-box {
+        background-color: #247847;
       }
 
-      .in-card {
-        position: absolute;
-        left: 37.5%;
-        top: 35%;
-        box-shadow: rgba(246, 246, 4, 0.85) 0px 30px 60px -12px inset,
-          #0000004d 0px 18px 36px -18px inset;
-        opacity: 0.7;
+      .fa-solid {
+        background: linear-gradient(to bottom, orange, red);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .news-block {
+        background-image: url(src/img/carusel-3.jpeg);
+      }
+
+      .news-inner {
       }
     </style>
   </head>
@@ -42,8 +44,8 @@
     <!-- Header start -->
     <header class="wrapper">
       <nav class="navbar navbar-expand-lg navbar-dark main-nav">
-        <a class="navbar-brand" href="adaptive-and-mobile-layout-task5.html"
-          ><src/img alt="Логотип" src="src/src/img/logo.png" width="120" /></a
+        <a class="navbar-brand" href="bootstrap.html"
+          ><src/img alt="Логотип" src="src/img/logo.png" width="120" /></a
         >
         <button
           aria-controls="navbarSupportedContent"
@@ -116,7 +118,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <src/img alt="Изображение карусели" class="d-block w-100"
-            src="src/src/img/carousel-1.webp" />
+            src="src/img/carousel-1.webp"/>
             <div class="carousel-caption d-none d-md-block">
               <h5>Круизный тур Филиппины</h5>
               <p><a href="#">Только сегодня скидка 20%</a></p>
@@ -124,7 +126,7 @@
           </div>
           <div class="carousel-item">
             <src/img alt="Изображение карусели" class="d-block w-100"
-            src="src/src/img/carousel-2.webp" />
+            src="src/img/carousel-2.webp"/>
             <div class="carousel-caption d-none d-md-block">
               <h5>Тайланд райский отдых</h5>
               <p>
@@ -133,8 +135,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <src/img alt="Изображение карусели" class="d-block w-100"
-            src="src/src/img/carousel-3.jpg" />
+            <src/img alt="Изображение карусели" class="d-block w-100" src="src/img/carousel-3.jpg"/>
             <div class="carousel-caption d-none d-md-block">
               <h5>Острова</h5>
               <p>Отдых на островах вдали от цивилизации</p>
@@ -162,25 +163,39 @@
       </div>
     </section>
     <!-- Carousel end -->
-
-    <!-- Block 1 start -->
-    <section class="block-1 d-flex justify-content-around w-100 mt-3">
-      <div class="card border-primary bg-warning w-25"></div>
-      <div class="card border-primary bg-warning w-25"></div>
-      <div class="card border-primary bg-warning w-25"></div>
-    </section>
-    <!-- Bloc end -->
-
-    <!-- Block 2 start -->
-    <section style="height: 150px" class="d-flex w-100 mt-2 border border-dark position-relative">
-      <src/img alt="Фоновое 2 блока" class="background align-items-stretch w-100"
-      src="src/src/img/sea.jpg" />
-      <div class="card in-card w-25 border-success bg-light">
-        <p class="text-center mt-3">Call to Action</p>
+    <!-- blog section start -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-xl-4 p-5">
+          <div class="card text-center py-5 blog-box">
+            <i class="fa-solid fa-car-side fa-5x"></i>
+          </div>
+        </div>
+        <div class="col-xl-4 p-5">
+          <div class="card text-center py-5 blog-box">
+            <i class="fa-solid fa-square-rss fa-5x"></i>
+          </div>
+        </div>
+        <div class="col-xl-4 p-5">
+          <div class="card text-center py-5 blog-box">
+            <i class="fa-solid fa-mug-saucer fa-5x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- blog section end -->
+    <!-- news section start -->
+    <section class="wrapper">
+      <div class="news-block">
+        <div class="news-inner">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, alias voluptate dolor,
+          velit nam, praesentium voluptas in adipisci at laudantium saepe ex a officia nostrum
+          perspiciatis beatae animi placeat fugiat.
+        </div>
       </div>
     </section>
-    <!-- Block 2 end -->
 
+    <!-- news section end -->
     <script
       crossorigin="anonymous"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
