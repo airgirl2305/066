@@ -3,43 +3,47 @@
 во второй - стоимость одного доллара в рублях. Вы спрашиваете у пользователя,
 сколько рублей он хочет сконвертировать, получаете это число и считаете.
 Результат надо вывести на страницу с помощью alert.*/
-/*function getExchangeRate(rubles) {
+function getExchangeRate(rubles) {
+  let euroRubleExchangeRate = 1;
+  let dollarRubleExchangeRate = 2;
 
-    let euroRubleExchangeRate = 1;
-    let dollarRubleExchangeRate = 2; 
+  return alert(
+    `евро ${rubles / euroRubleExchangeRate} и долларов ${rubles / dollarRubleExchangeRate}`
+  );
+}
 
-return alert(`евро ${rubles/euroRubleExchangeRate} и долларов ${rubles/dollarRubleExchangeRate}`);
-};
-
-getExchangeRate(100);*/
+getExchangeRate(100);
 
 /*2. //FIXME Пользователь вводит длину оснований трапеции (a и b), а также высоту трапеции h.
 Программа выводит сообщение: «Площадь трапеции будет равна <значение>».
 Площадь вычисляется по формуле ((a + b) / 2) * h, где a, b - основания, h - высота.*/
-// function trapezoidS(a, b, h) {
-//   return console.log(`Площадь трапеции будет равна ${((a + b) / 2) * h}`);
-// }
-// trapezoidS(1, 2, 3);
+function trapezoidS(a, b, h) {
+  return console.log(`Площадь трапеции будет равна ${((a + b) / 2) * h}`);
+}
+
+trapezoidS(1, 2, 3);
 
 /*3. //FIXME Пользователь вводит сумму вклада и процент, который будет начисляться ежегодно.
 Отобразить размер вклада поочередно на ближайшие 5 лет.*/
 
-/* let depositSum = 1000;
-let annualInterestRate = 10;
-console.log('Задание 3:');
+let depositSum = Number(prompt("Сумма вклада = "));
+let annualInterestRate = Number(prompt(" % = "));
+
 for (i = 1; i <= 5; i++) {
-    console.log(`Год ${i}: ${Math.round(depositSum += depositSum * annualInterestRate / 100)}`);
-}; */
+  console.log(`Год ${i}: ${Math.round((depositSum += (depositSum * annualInterestRate) / 100))}`);
+}
 
 /*4. //TODO Запросить у пользователя ввод числа и сохранить это число в переменную a.
 Если переменная a равна 10, то выведите 'Верно', иначе выведите 'Неверно'.*/
 
 /*5. //DONE Выведите столбец чисел от 1 до 50.*/
-/* let i = 0;
+//Задание 6: Выведите столбец чисел от 1 до 50 в консоль.
+let i = 0;
+
 do {
   i++;
-  console.log("Задание 5 =", i);
-} while (i < 50); */
+  console.log(i);
+} while (i < 50);
 
 /*6. //DONE Даны переменные a = 10 и b = 3. Найдите остаток от деления a на b.*/
 /* let a6 = 10;
@@ -129,10 +133,17 @@ console.log("Задание 20 = ", getWeightInKg(1500)); */
 
 /*25. //FIXME Напишите код, который принимает от пользователя фамилию, имя и отчество, а затем
 выводит на экран фамилию и инициалы (без пробела между инициалами).*/
-/* function signature(surname, name, middle) {
-    return console.log('Задание 25 = ', surname + ' ' + name[0] + '.' + middle[0] + '.')
-};
-signature('Асхабова', 'Хеда', 'Виситовна'); */
+function signature() {
+  let surname = prompt("Введите Фамилию:");
+  let name = prompt("Введите Имя:");
+  let middleName = prompt("Введите Отчество:");
+
+  return console.log("Задание 25 = ", surname + " " + name[0] + "." + middleName[0] + ".");
+}
+
+signature();
+
+signature("Асхабова", "Хеда", "Виситовна");
 
 /*26. //TODO Напишите код, который принимает с клавиатуры целое положительное двузначное число
 и выводит на экран его цифры, разделенные знаком «пробел».*/
@@ -312,7 +323,7 @@ console.log('Задание 72: ', doCalc(3, 1, 2)); */
 /*76. //TODO Составьте SQL запрос который получит все данные из таблицы tasks.*/
 
 /*77. //TODO В таблице users имеется пользователь с id=546, напишите SQL запрос,
-который позволит получить все данные пользователя с таким id. 77. 
+который позволит получить все данные пользователя с таким id. 77.
 В таблице users имеются поля Фамилия, Имя, Отчество, Возраст, Номер телефона.
 Напишите SQL запрос который будет искать в таблице Иванова Игоря Петровича и возвращать все поля данной записи.*/
 
