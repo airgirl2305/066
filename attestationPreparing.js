@@ -4,12 +4,12 @@
 сколько рублей он хочет сконвертировать, получаете это число и считаете.
 Результат надо вывести на страницу с помощью alert.*/
 function getExchangeRate(rubles) {
-  let euroRubleExchangeRate = 1;
-  let dollarRubleExchangeRate = 2;
-
-  return alert(
-    `евро ${rubles / euroRubleExchangeRate} и долларов ${rubles / dollarRubleExchangeRate}`
-  );
+	let euroRubleExchangeRate = 1;
+	let dollarRubleExchangeRate = 2;
+	
+	return alert(
+		`евро ${rubles / euroRubleExchangeRate} и долларов ${rubles / dollarRubleExchangeRate}`
+	);
 }
 
 getExchangeRate(100);
@@ -18,7 +18,7 @@ getExchangeRate(100);
 Программа выводит сообщение: «Площадь трапеции будет равна <значение>».
 Площадь вычисляется по формуле ((a + b) / 2) * h, где a, b - основания, h - высота.*/
 function trapezoidS(a, b, h) {
-  return console.log(`Площадь трапеции будет равна ${((a + b) / 2) * h}`);
+	return console.log(`Площадь трапеции будет равна ${((a + b) / 2) * h}`);
 }
 
 trapezoidS(1, 2, 3);
@@ -30,7 +30,7 @@ let depositSum = Number(prompt("Сумма вклада = "));
 let annualInterestRate = Number(prompt(" % = "));
 
 for (i = 1; i <= 5; i++) {
-  console.log(`Год ${i}: ${Math.round((depositSum += (depositSum * annualInterestRate) / 100))}`);
+	console.log(`Год ${i}: ${Math.round((depositSum += (depositSum * annualInterestRate) / 100))}`);
 }
 
 /*4. //TODO Запросить у пользователя ввод числа и сохранить это число в переменную a.
@@ -41,8 +41,8 @@ for (i = 1; i <= 5; i++) {
 let i = 0;
 
 do {
-  i++;
-  console.log(i);
+	i++;
+	console.log(i);
 } while (i < 50);
 
 /*6. //DONE Даны переменные a = 10 и b = 3. Найдите остаток от деления a на b.*/
@@ -134,11 +134,11 @@ console.log("Задание 20 = ", getWeightInKg(1500)); */
 /*25. //FIXME Напишите код, который принимает от пользователя фамилию, имя и отчество, а затем
 выводит на экран фамилию и инициалы (без пробела между инициалами).*/
 function signature() {
-  let surname = prompt("Введите Фамилию:");
-  let name = prompt("Введите Имя:");
-  let middleName = prompt("Введите Отчество:");
-
-  return console.log("Задание 25 = ", surname + " " + name[0] + "." + middleName[0] + ".");
+	let surname = prompt("Введите Фамилию:");
+	let name = prompt("Введите Имя:");
+	let middleName = prompt("Введите Отчество:");
+	
+	return alert(surname + " " + name[0].toUpperCase() + "." + middleName[0].toUpperCase() + ".");
 }
 
 signature();
@@ -252,7 +252,7 @@ console.log("Задание 46 =", result46);
 let array58 = [2, 3, 4, 5];
 let result58;
 for (i = 0; i < array58.length; i++) {
-  result58 += array58[i];
+	result58 += array58[i];
 }
 console.log("Задание 58 =", result58);
 /*59. //DONE Даны два массива: [1, 2, 3] и [4, 5, 6]. Объедините их вместе.*/

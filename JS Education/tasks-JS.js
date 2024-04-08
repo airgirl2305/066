@@ -43,47 +43,57 @@
 // Задание 17 : Создать массив, занести в него десять элементов по принципу: "фамилия" - "дата рождения". Удалить из массива всех людей, родившихся летом. Формат записи даты 18 april 1956. Вывести массив до удаления и после удаления в консоль, каждый с новой строки. Пример записи исходных данных:
 
 // let people = [
-// 	{
-// 		name: "Ivanov",
-// 		date: "01 april 1956",
-// 	},
-// 	{
-// 		name: "Petrov",
-// 		date: "02 may 1998",
-// 	},
-// 	{
-// 		name: "Kozlova",
-// 		date: "03 november 1978",
-// 	},
-// 	{
-// 		name: "Kuznetsov",
-// 		date: "04 july 1955",
-// 	},
-// 	{
-// 		name: "Lagoda",
-// 		date: "05 august 2000",
-// 	},
-// 	{
-// 		name: "Smirnov",
-// 		date: "06 september 2003",
-// 	},
-// 	{
-// 		name: "Lapteva",
-// 		date: "07 october 1994",
-// 	},
-// 	{
-// 		name: "Krasnova",
-// 		date: "08 feburary 1967",
-// 	},
-// 	{
-// 		name: "Makarova",
-// 		date: "09 may 1998",
-// 	},
-// 	{
-// 		name: "Ptentsov",
-// 		date: "10 january 1989",
-// 	},
+//   {
+//     name: "Ivanov",
+//     date: "01 april 1956",
+//   },
+//   {
+//     name: "Petrov",
+//     date: "02 may 1998",
+//   },
+//   {
+//     name: "Kozlova",
+//     date: "03 november 1978",
+//   },
+//   {
+//     name: "Kuznetsov",
+//     date: "04 july 1955",
+//   },
+//   {
+//     name: "Lagoda",
+//     date: "05 august 2000",
+//   },
+//   {
+//     name: "Smirnov",
+//     date: "06 september 2003",
+//   },
+//   {
+//     name: "Lapteva",
+//     date: "07 october 1994",
+//   },
+//   {
+//     name: "Krasnova",
+//     date: "08 feburary 1967",
+//   },
+//   {
+//     name: "Makarova",
+//     date: "09 january 1998",
+//   },
+//   {
+//     name: "Ptentsov",
+//     date: "10 june 1989",
+//   },
 // ];
+
+// console.log(people);
+// console.log(
+//   people.filter(
+//     (person) =>
+//       person.date.split(" ")[1] !== "june" &&
+//       person.date.split(" ")[1] !== "july" &&
+//       person.date.split(" ")[1] !== "august"
+//   )
+// );
 
 //Задание 7: Даны переменные a и b (вводит пользователь). Проверьте, что a делится без остатка на b. Если это так - выведите 'Делится' и результат деления, иначе выведите 'Делится с остатком' и остаток от деления.
 
@@ -93,16 +103,86 @@
 // console.log(a % b ? "Делится с остатком" : "Делится");
 
 //Задание 8: Дан массив с числами. Запишите в новый массив только те числа, которые больше нуля и меньше 10-ти.
-let array = [0, 1, 11, 14, 2, 26, 3];
-let newArray = [];
-for (let i = 0; i < array.length; i++) {
-	
-	if (array[i]) {
-		if (array[i] < 10) {
-			newArray = [].push(array[i]);
-		} else {
-		}
-	}
-	console.log(newArray);
-}
+// let array = [0, 1, 11, 14, 2, 26, 3];
+// let newArray = [];
+//
+// for (let i = 0; i < array.length; i++) {
+// 	if (array[i] && array[i] < 10) {
+// 		newArray.push(array[i]);
+// 	}
+// }
+// console.log(newArray);
+// Сделайте функцию, которая параметрами принимает 2 числа.
+//   Если эти числа равны - пусть функция вернет true, а если не равны - false.
+// function toCompare(number1, number2) {
+// 	return console.log(+number1 == +number2);
+// }
+//
+// toCompare(-8, "-8");
+/*25. //FIXME Напишите код, который принимает от пользователя фамилию, имя и отчество, а затем
+выводит на экран фамилию и инициалы (без пробела между инициалами).*/
+// function signature() {
+//   let surname = prompt("Введите Фамилию:");
+//   let name = prompt("Введите Имя:");
+//   let middleName = prompt("Введите Отчество:");
+//
+//   return alert(surname + " " + name[0].toUpperCase() + "." + middleName[0].toUpperCase() + ".");
+// }
+//
+// signature();
+//
+// Задание: Сделайте функцию arrayFill, которая будет заполнять массив заданными значениями.
+// Первым параметром функция принимает значение, которым заполнять массив, а вторым - сколько элементов должно быть
+// в массиве. Пример: arrayFill('x', 5) сделает массив вида ['x', 'x', 'x', 'x', 'x']. Оформите вывод в alert.
+// function arrayFill(value, length) {
+// 	let array = [];
+// 	for (let i = 0; i < length; i++) {
+// 		array.push(value);
+// 	}
+// 	return alert(array);
+// }
+//
+// arrayFill('x', 5)
 
+// Задание: Дан массив с числами.
+//
+// 	Проверьте, есть ли в нем два одинаковых числа подряд. Если есть - выведите 'да', а если нет - выведите 'нет'. Вывод не должен дублироваться в случае если пары одинаковых чисел встречаются несколько раз.
+
+// function isThere(array) {
+// 	array.map((el) => {
+// 		(el[i] == el[i + 1]) ? console.log('да') : console.log('нет')
+// 	})
+// }
+// isThere([1, 2, 2, 3, 4, 5, 6, 7]);
+
+// function isThereTwoSameNumber(array) {
+// 	for (i = 0; i < array.length; i++) {
+// 		if (array[i] === array[i + 1]) {
+// 			return alert('да');
+// 		}
+// 	}
+// 	return alert('нет');
+// }
+
+// isThereTwoSameNumber([1, 2, 2, 3, 4, 5, 6, 7]);
+
+// Дан массив с числами. Запишите в новый массив только те числа, которые больше нуля и меньше 10-ти. Выведите новый массив в консоль.
+// let array = [0, 1, 11, 14, 2, 26, 3];
+// let newArray = +array.map(el => {
+// 	if (el > 0 && el < 10) {
+// 		return el;
+// 	}
+// })
+
+
+let array = [-1, 0, 1, 11, 14, 2, 26, 3];
+let newArray = [];
+
+for (let i = 0; i < array.length; i++) {
+  if (array[i] > 0 && array[i] < 10) {
+    newArray.push(array[i]);
+  }
+}
+console.log(newArray);
+
+console.log(-1 == false);
