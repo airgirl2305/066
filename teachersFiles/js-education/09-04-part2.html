@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Условное ветвление и исключительные ситуации</title>
+  </head>
+  <body>
+    <script>
+      try {
+        let array = [4, 5, 6];
+        array.push(33);
+        console.log(array);
+        throw new ReferenceError();
+
+      } catch (error) {
+        if (error instanceof ReferenceError) {
+          console.log("Поймана и обработана");
+        } else {
+          throw error;
+        }
+      } finally {
+        console.log("Какие-то действия");
+      }
+      console.log("Привет, я все еще жив, скрипт!");
+      // let a = +prompt("Введите число 3");
+
+      // switch (a) {
+      //   case 3:    //if(a === 3)
+      //     console.log("Прямое попадание!");
+      //   case 10:
+      //     console.log("Тоже хорошо");
+      //     break;
+      //   case 5:
+      //     console.log("Мимо");
+      //   default:
+      //     console.log("Что-то вы ввели совсем другое");
+      // }
+
+      // let a = 88;
+
+      // console.log(a ?? "Не определено");
+    </script>
+  </body>
+</html>
