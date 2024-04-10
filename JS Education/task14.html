@@ -5,25 +5,49 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Task 14</title>
   </head>
+
   <style>
     img {
       width: 400px;
     }
+    div {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
   </style>
+
   <body>
     <div>
       <img
+        id="pic1"
         alt="pic1"
-        src="https://images.pexels.com/photos/14705563/pexels-photo-14705563.jpeg?auto=compress&cs=tinysrgb&w=800"
+        onclick="showSRC()"
+        src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d"
       />
       <img
+        id="pic2"
         alt="pic2"
-        src="https://images.pexels.com/photos/14918477/pexels-photo-14918477.jpeg?auto=compress&cs=tinysrgb&w=800"
+        onclick="showSRC()"
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
       />
-      <img alt="pic3" src="https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg" />
+      <img
+        id="pic3"
+        alt="pic3"
+        onclick="showSRC()"
+        src="https://media.sproutsocial.com/uploads/2022/06/profile-picture.jpeg"
+      />
     </div>
+
     <script>
-      get;
+      let pic1 = document.getElementById("pic1");
+      let pic2 = document.getElementById("pic2");
+      let pic3 = document.getElementById("pic3");
+
+      function showSRC() {
+        let src = pic1.src || pic2.src || pic2.src;
+        return alert(src);
+      }
     </script>
   </body>
 </html>

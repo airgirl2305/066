@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Кофе-машина</title>
+    <style>
+      /* --charcoal: hsl(203, 30%, 26%);
+      --lapis-lazuli: hsl(206, 46%, 37%);
+      --carolina-blue: hsl(201, 51%, 69%);
+      --hunyadi-yellow: hsl(39, 92%, 57%);
+      --orange-pantone: hsl(21, 89%, 52%); */
+      body {
+        font-family: "Comfortaa", sans-serif;
+      }
+      .coffee_block {
+        background-color: hsl(21, 89%, 52%);
+        border: 1px solid hsl(203, 30%, 26%);
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        filter: drop-shadow(4px 2px 4px hsl(206, 46%, 37%));
+      }
+      .coffee_btn {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-left: 100px solid hsl(39, 92%, 57%);
+        border-bottom: 50px solid transparent;
+        cursor: pointer;
+      }
+      .coffee_btn:hover {
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        border-left: 100px solid hsl(39, 92%, 45%);
+        border-bottom: 50px solid transparent;
+        position: relative;
+        left: 3px;
+      }
+      .coffee_block span {
+        font-size: 1.5rem;
+        line-height: 100px;
+        vertical-align: middle;
+        color: white;
+        padding-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row coffee_block">
+            <div class="coffee_btn" onclick="getCoffee(178, 'Эспрессо')"></div>
+            <span>Эспрессо - 178 руб</span>
+          </div>
+          <div class="row coffee_block">
+            <div class="coffee_btn"></div>
+            <span>Капучино - 224 руб</span>
+          </div>
+          <div class="row coffee_block">
+            <div class="coffee_btn"></div>
+            <span>Латте - 233 руб</span>
+          </div>
+          <div class="row coffee_block">
+            <div class="coffee_btn"></div>
+            <span>Моккачино - 317 руб</span>
+          </div>
+          <div class="row coffee_block">
+            <div class="coffee_btn"></div>
+            <span>Какао - 49 руб</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <input type="text" placeholder="Сколько у вас денег?" id="money" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let money = document.getElementById("money");
+
+      function getCoffee(price, name) {
+        if (money.value >= price) {
+          console.log("%c Ваш " + name + " готов!", "padding: 15px; background-color: green;");
+        } else {
+          console.log("Не хватает средств на " + name);
+        }
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
