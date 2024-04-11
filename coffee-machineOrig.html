@@ -15,29 +15,30 @@
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="src/favicon.ico" />
     <title>Кофе-машина</title>
   </head>
   <style>
+    /* CSS HSL
+	--black: hsl(30, 11%, 4%);
+	--gunmetal: hsl(199, 27%, 18%);
+	--almond: hsl(31, 33%, 88%);
+	--khaki: hsl(32, 33%, 67%);
+	--walnut-brown: hsl(33, 20%, 31%); */
     body {
       font-family: "Lobster", sans-serif;
       color: hsl(199, 27%, 18%);
       background-image: url("https://images.unsplash.com/photo-1606462531411-bd77abcb7c57");
-      /* background-size: 100%;
-              background-position: center;
-        background-position: cover;*/
       background-size: 1900px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
       box-sizing: border-box;
       max-width: 1900px;
       margin: auto;
     }
+
     #money {
       font-size: 2rem;
       text-align: center;
     }
+
     .coffee-block {
       display: flex;
       align-items: center;
@@ -47,6 +48,7 @@
       filter: drop-shadow(6px 3px 6px hsl(19, 22%, 25%));
       background: linear-gradient(to bottom right, hsl(31, 33%, 88%), hsl(32, 30%, 45%));
     }
+
     .coffee-btn {
       width: 45px;
       height: 45px;
@@ -55,24 +57,14 @@
       cursor: pointer;
       margin: 0 1rem 0 8px;
     }
+
     .coffee-btn:hover {
       background-color: hsl(188.82deg 20.99% 31.76%);
     }
+
     .coffee-block span {
       font-size: 1.5rem;
       line-height: 100px;
-    }
-    #display {
-      width: 100%;
-      height: 220px;
-      background: rgb(226, 211, 181);
-      background: radial-gradient(circle, rgba(226, 211, 181, 1) 0%, rgb(30, 14, 5) 100%);
-      border: 2px dotted hsl(60, 2%, 13%);
-      text-align: center;
-      padding: 10px;
-      color: bisque;
-      font-family: "Caveat", sans-serif;
-      font-size: 1.6rem;
     }
   </style>
 
@@ -101,78 +93,25 @@
             <span>Какао - 49 руб</span>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-6">
-              <div id="display">Внесите деньги</div>
-            </div>
-            <div class="col-md-6">
-              <input id="money" placeholder="Сколько у Вас денег?" type="text" />
-            </div>
-          </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-start">
+          <input id="money" placeholder="Сколько у Вас денег?" type="text" />
         </div>
       </div>
     </div>
 
     <script>
       let money = document.getElementById("money");
-      let display = document.getElementById("display");
 
       function getCoffee(price, name) {
         if (money.value >= price) {
           money.value -= price;
-          display.innerHTML = `Ваш ${name} готов!`;
+          console.log(
+            `%c Ваш ${name} готов!`,
+            "padding:15px; background-color: hsl(188.82deg 20.99% 31.76%);"
+          );
         } else {
-          display.innerHTML = "Не хватает средств на Ваш " + name;
+          console.log("Не хватает средств на Ваш " + name);
         }
-      }
-      function getChangeOld(num) {
-        if (num >= 10) {
-          console.log(10);
-          getChangeOld(num - 10);
-        } else if (num >= 5) {
-          console.log(5);
-          getChangeOld(num - 5);
-        } else if (num >= 2) {
-          console.log(2);
-          getChangeOld(num - 2);
-        } else if (num >= 1) {
-          console.log(1);
-          getChangeOld(num - 1);
-        }
-      }
-
-      function getChange2(num) {
-        //более высокая complexity 6 из-за рекурсии
-        let coin;
-        if (num >= 10) coin = 10;
-        else if (num >= 5) coin = 5;
-        else if (num >= 2) coin = 2;
-        else if (num >= 1) coin = 1;
-        console.log(coin);
-
-        if (num - coin != 0) getChange2(num - coin);
-      }
-      function getChange(num) {
-        //complexity 5
-        let coin;
-        while (num >= 10) {
-          coin = 10;
-          num -= coin;
-        }
-        while (num >= 5) {
-          coin = 5;
-          num -= coin;
-        }
-        while (num >= 2) {
-          coin = 2;
-          num -= coin;
-        }
-        while (num >= 1) {
-          coin = 1;
-          num -= coin;
-        }
-        console.log(coin);
       }
     </script>
 

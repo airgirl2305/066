@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Рекурсия</title>
+  </head>
+  <body>
+    <script>
+      // function F(n) {
+      //   if (n > 2) return F(n - 1) + F(n - 2);
+      //   else return 1;
+      // }
+      // console.log(F(5));
+
+      function F2(n) {
+        if (n > 3) return F2(n - 2) + F2(n / 2);
+        else return n;
+      }
+      console.log(F2(9));
+
+      function F3(n) {
+        console.log(n);
+        if (n > 0) {
+          F3;
+        }
+      }
+
+      let i = 0;
+      function some() {
+        i++;
+        some();
+      }
+
+      try {
+        some();
+      } catch (e) {
+        console.log(i);
+      }
+    </script>
+  </body>
+</html>
