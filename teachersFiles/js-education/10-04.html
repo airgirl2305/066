@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Функции</title>
+    <style>
+      button,
+      input {
+        padding: 1rem;
+        font-size: 1.25rem;
+        margin-left: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="Введите число 1" id="num1"/>
+    <input type="text" placeholder="Введите число 2" id="num2"/>
+    <button onclick="calc('+')">Сложить (+)</button>
+    <button onclick="calc('*')">Умножить (*)</button>
+    <button onclick="calc('-')">Вычесть (-)</button>
+    <button onclick="calc('/')">Разделить (/)</button>
+
+    <!-- <button onclick="showMsg()">Нажми на меня</button> -->
+    <script>
+      let num1 = document.getElementById("num1");
+      let num2 = document.getElementById("num2");
+
+
+      function calc(operator) {
+        if (operator === "+") {
+          console.log("Результат суммирования: " + (+num1.value + +num2.value));
+        } else if (operator === "*") {
+          console.log("Результат умножения: " + (+num1.value * +num2.value));
+        } else if (operator === "-") {
+          console.log("Результат вычитания: " + (+num1.value - num2.value));
+        } else if (operator === "/") {
+          console.log("Результат деления: " + (+num1.value / num2.value));
+        }
+      }
+
+      // function sum() {
+      //   console.log("Результат суммирования: " + (+num1.value + +num2.value));
+      // }
+      // function mult() {
+      //   console.log("Результат умножения: " + (+num1.value * +num2.value));
+      // }
+      // function showMsg() {
+      //   alert("Hello, my dear friends!!");
+      // }
+
+      // function f(x) {
+      //   return x ** 2;
+      // }
+      // console.log(f(-5));
+      // function power(base, exponent) {
+      //   let result = 1;
+      //   for (let i = 0; i < exponent; i++) {
+      //     result = result * base;
+      //   }
+      //   return result;
+      // }
+
+      // console.log(power(2, 10));
+      // console.log(power(7, 4));
+      // function makeBoom() {
+      //   console.log("Boom!");
+      // }
+
+      // makeBoom();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Task 2</title>
+  </head>
+  <body>
+    <input id="numPlace" placeholder="Введите число" type="text" />
+    <input id="resultPlace" />
+    <input id="btn" type="button" value="Нажми меня" onclick="square()" />
+
+    <script>
+      let numPlace = document.getElementById("numPlace");
+      let resultPlace = document.getElementById("resultPlace");
+
+      function square() {
+        resultPlace.value = numPlace.value ** 2; //приведение к числу из-за арифметики
+      }
+    </script>
+  </body>
+</html>
