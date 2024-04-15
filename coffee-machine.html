@@ -154,7 +154,13 @@
         if (num - coin != 0) getChange2(num - coin);
       }
 
+      function ternGetChange(num) {
+        let coin = num >= 10 ? 10 : num >= 5 ? 5 : num >= 2 ? 2 : num >= 1 ? 1 : "Вся сдача выдана";
+        console.log(coin);
+        if (num - coin != 0) ternGetChange(num - coin);
+      }
       function getChange(num) {
+        // complexity 4
         const coins = [10, 5, 2, 1];
         const counts = [0, 0, 0, 0];
         const coinValues = ["10 рублей", "5 рублей", "2 рубля", "1 рублю"];
