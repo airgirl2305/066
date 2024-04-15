@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Методы массивов</title>
+</head>
+<body>
+<script>
+    let length = ["Апельсин", "Ель", "Длинная строка"].map((item) => item.length);
+    console.log(length);
+
+    const numbers = [1, 9, 4, 2, 7];
+
+    let y = numbers.map(Math.sqrt); //Так лучше не надо
+    console.log(y);
+
+    console.log(["2", "4", "3"].map(parseInt));//Так не надо
+
+    let num = (element) => parseInt(element, 10);
+    console.log(["2", "4", "3"].map(num));
+    // let arr = [78, 2, 4, 6, 7, 9, 1, 2, 3];
+    // console.log(arr);
+
+    // function sortArr(numbers) {
+    //   function compare(a, b) {
+    //     return a > b ? 1 : -1;
+    //   }
+    //   return numbers.slice().sort(compare);
+    // }
+
+    // function sortArr(numbers) {
+    //   // let copy = [...numbers];
+    //   let copy = numbers.slice();
+    //   let sortedArr = copy.sort(compare);
+
+    //     function compare(a, b) {
+    //       if (a < b) return 1;
+    //       else return -1;
+    //     }
+    //   return sortedArr;
+    // }
+
+    // console.log(sortArr(arr));
+    // console.log(arr);
+
+    // function addSpecialNumbers(numbers) {
+    //   let result = numbers.filter(function(item) {
+    //     return item % 2 == 0 ? true : false;
+
+    //   })
+    //   return result;
+    // }
+    // let arr = [1, 213, 44, 5, 7, 12, 9];
+    // console.log(arr);
+    // console.log(addSpecialNumbers(arr));
+    // console.log(arr);
+
+    // function addSpecialNumbers(numbers) {
+    //   let specialNumbers = [];
+
+    //   numbers.forEach(function (num) {
+    //     if (num % 3 == 0) {
+    //       specialNumbers.push(num);
+    //     }
+    //   });
+
+    //   return specialNumbers;
+    // }
+
+    // function addSpecialNumbers(numbers) {
+    //   let specialNumbers = [];
+
+    //   for (let i = 0; i < numbers.length; i++) {
+    //     if (numbers[i] % 3 == 0) {
+    //       specialNumbers.push(numbers[i]);
+    //     }
+    //   }
+    //   return specialNumbers;
+    // }
+
+    // let arr = [1, 213, 44, 5, 7, 12, 9];
+    // console.log(addSpecialNumbers(arr));
+    // let sum = 0;
+
+    // arr.forEach(function(value) {
+    //   sum += value;
+    // })
+    // console.log(sum);
+    // console.log(
+    //   [2, 8, -99, 4].some((element) => {
+    //     return element > 10;
+    //   })
+    // );
+
+    // console.log([2, 8, 4, 7, 33].some((elem) => elem > 10));
+
+    // let cars = ["Ford", "Audi", "BMW"];
+
+    // let items = cars.splice(1, 2);
+    // console.log(items[0]);
+    // cars.splice(-1, 0, "BYD");
+    // cars.reverse();
+    // console.log(cars);
+
+    //console.log(cars);
+
+    // cars.push("Another car");
+    // cars.unshift("Volvo");
+
+    // //delete cars[2];
+    // let car = cars.pop();
+    // let car2 = cars.shift();
+
+    // console.log(cars);
+</script>
+</body>
+</html>
