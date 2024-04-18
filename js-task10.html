@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task JS 10 Kheda's</title>
+    <style>
+      body {
+        /* ?обойтись без этого и абсолютных */
+        display: flex;
+        justify-content: center;
+      }
+      #rocketBoy {
+        position: absolute;
+        width: 200px;
+      }
+      #comet {
+        position: absolute;
+        height: 100px;
+        /* left: cal((window.innerWidth -100)/2); // ?не работает*/
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="src/img/rocketBoy.png" alt="rocketBoy" id="rocketBoy" />
+    <img src="src/img/comet.png" alt="comet" id="comet" />
+
+    <script>
+      let rocketBoy = window.document.getElementById("rocketBoy");
+      let comet = document.getElementById("comet");
+      let flight = 0;
+      let dropping = 190;
+      let drop = false;
+      let backwardsDir = false;
+
+      function animationBoy() {
+        if (window.innerWidth - 200 > flight && !backwardsDir) {
+          rocketBoy.style.transform = "scaleX(1)";
+          flight += 1;
+          //console.log("forward");
+        } else {
+          rocketBoy.style.transform = "scaleX(-1)";
+          flight -= 1;
+          backwardsDir = Boolean(flight);
+          //console.log("back");
+        }
+
+        if (Math.round(window.innerWidth / 2) == flight + 100) {
+          drop = true;
+          //console.log("drop");
+        }
+        rocketBoy.style.left = flight + "px";
+      }
+      function animationComet() {
+        if (drop && window.innerHeight - 100 > dropping) {
+          dropping += 10;
+          comet.style.display = "block";
+          comet.style.top = dropping + "px";
+        }
+      }
+
+      setInterval(animationBoy, 20);
+      setInterval(animationComet, 100);
+    </script>
+  </body>
+</html>

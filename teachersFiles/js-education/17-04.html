@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Навигация по DOM элементам</title>
+    <style>
+      body,
+      input {
+        font-size: 1.5rem;
+      }
+      .edit {
+        color: red;
+        cursor: pointer;
+        margin-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <strong> Имя: </strong>
+      <span> Иван </span>
+      <span class="edit" onclick="editName(this)"> [ Редактировать ] </span>
+    </p>
+    <p>
+      <strong> Фамилия: </strong>
+      <span> Иванов </span>
+      <span class="edit" onclick="editName(this)"> [ Редактировать ] </span>
+    </p>
+
+    <script>
+      function editName(element) {
+        let value = element.previousElementSibling.innerText;
+        element.previousElementSibling.innerHTML = `<input type="text" value="${value}">`;
+      }
+    </script>
+  </body>
+</html>

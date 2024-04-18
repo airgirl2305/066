@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRAG & DROP</title>
+    <style>
+      #dragElement {
+        width: 200px;
+        height: 200px;
+        background-color: burlywood;
+        border: 1px red solid;
+        border-radius: 2px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dragElement"></div>
+    <!-- <button id="disBtn">Запретить изменять цвет</button> -->
+
+    <script>
+      let dragElement = document.getElementById("dragElement");
+
+      dragElement.onmousedown = function () {
+        document.addEventListener("mousemove", moveElement);
+
+        document.onmouseup = function () {
+          document.removeEventListener("mousemove", moveElement);
+        };
+
+        function moveElement(event) {
+          let x = event.clientX - 100;
+          let y = event.clientY - 100;
+
+          dragElement.style.top = y + "px";
+          dragElement.style.left = x + "px";
+        }
+      };
+
+      // dragElement.addEventListener("click", changeColor);
+
+      // disBtn.addEventListener("click", function () {
+      //   console.log("Удален слушатель");
+      //   dragElement.removeEventListener("click", changeColor);
+      // });
+
+      // function changeColor() {
+      //   let red = Math.round(Math.random() * 255);
+      //   let green = Math.round(Math.random() * 255);
+      //   let blue = Math.round(Math.random() * 255);
+
+      //   dragElement.style.background = `rgb(${red}, ${green}, ${blue})`;
+      // }
+
+      // dragElement.addEventListener("click", clickHandler);
+
+      // function clickHandler() {
+      //   console.log("Произошел клик по элементу");
+      // }
+
+      // dragElement.addEventListener("click", function() {
+      //   console.log("Произошел клик по элементу");
+      // })
+
+      // dragElement.onclick = function() {
+      //   console.log("Произошел клик по элементу");
+      // }
+    </script>
+  </body>
+</html>
