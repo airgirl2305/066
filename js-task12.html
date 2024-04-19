@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <title>Task 12</title>
+    <style>
+        #colorsRow,
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #colorsRow {
+            flex-direction: column;
+        }
+
+        .small-square {
+            width: 50px;
+            height: 50px;
+            cursor: move;
+        }
+
+        .big-square {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(231, 229, 229, 0.63);
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div id="colorsRow">
+        <!-- необходим draggable="true" т.к. не ссылка или рисунок, поведение браузера по умолчанию не включает -->
+        <div
+                class="small-square"
+                draggable="true"
+                ondragstart="drag(event)"
+                style="background-color: hsl(0, 100%, 45%)"
+        ></div>
+        <div
+                class="small-square"
+                draggable="true"
+                ondragstart="drag(event)"
+                style="background-color: hsl(80, 91%, 22%)"
+        ></div>
+        <div
+                class="small-square"
+                draggable="true"
+                ondragstart="drag(event)"
+                style="background-color: hsl(208, 97%, 40%)"
+        ></div>
+    </div>
+    <div class="big-square" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+</div>
+
+<script>
+    let colorSource = queryse
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drag(event) {
+        event.dataTransfer.setData("text", event.target.style.backgroundColor);
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        event.target.style.backgroundColor = data;
+        event.target.innerHTML = "";
+    }
+</script>
+</body>
+</html>

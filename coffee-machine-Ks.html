@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+	<link
+					crossorigin="anonymous"
+					href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+					integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+					rel="stylesheet"
+	/>
+	<link href="https://fonts.googleapis.com" rel="preconnect"/>
+	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+	<link
+					href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&display=swap"
+					rel="stylesheet"
+	/>
+	<link href="src/favicon.ico" rel="icon"/>
+	<title>Кофе-машина</title>
+	<style>
+		body {
+			font-family: "Lobster", sans-serif;
+			color: hsl(199, 27%, 18%);
+			background-image: url("https://images.unsplash.com/photo-1606462531411-bd77abcb7c57");
+			background-size: 1900px;
+			background-position: center;
+			/*background-size: 100%;*/
+			/*background-position: cover;*/
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			box-sizing: border-box;
+			max-width: 1900px;
+			/* TODO position кривит без медиа запросов 576px-768px-992px-1200px*/
+			margin: auto;
+		}
+
+		.coffee-block {
+			display: flex;
+			align-items: center;
+			border: 1px solid hsl(33, 20%, 31%);
+			border-radius: 35%;
+			margin-bottom: 1rem;
+			filter: drop-shadow(6px 3px 6px hsl(19, 22%, 25%));
+			background: linear-gradient(to bottom right, hsl(31, 33%, 88%), hsl(32, 30%, 45%));
+		}
+
+		.coffee-btn {
+			width: 45px;
+			height: 45px;
+			border-radius: 50%;
+			background-color: hsl(199, 27%, 18%);
+			cursor: pointer;
+			margin: 0 1rem 0 8px;
+		}
+
+		.coffee-btn:hover {
+			background-color: hsl(188.82deg 20.99% 31.76%);
+			/* TODO переписать на процент в hsla */
+		}
+
+		.coffee-block span {
+			font-size: 1.5rem;
+			line-height: 100px;
+		}
+
+		#currencyValidator {
+			position: relative;
+		}
+
+		#amount {
+			font-size: 1.5rem;
+			text-align: center;
+			width: 83%;
+			height: 11%;
+			position: absolute;
+			left: 9.25%;
+			top: 9.2%;
+			border-radius: 12px;
+		}
+
+		#display {
+			height: 29.15%;
+			width: 78.3%;
+			position: absolute;
+			top: 35%;
+			left: 10.45%;
+			font-family: "Caveat", sans-serif;
+			font-size: 1.6rem;
+			text-align: center;
+			color: rgba(226, 211, 181, 1);
+			background: rgba(226, 211, 181, 1);
+			background: radial-gradient(circle, rgba(226, 211, 181, 1) 0%, rgb(30, 14, 5) 100%);
+			border: 2px dotted hsl(60, 2%, 13%);
+		}
+
+		img[src$="rub.jpg"] {
+			filter: contrast(150%);
+			cursor: move;
+			width: 88%;
+		}
+
+		.animated {
+			animation-name: hide-banknote;
+			animation-duration: 0.2s;
+			/* время анимации в мл/с */
+			animation-timing-function: ease-out;
+		}
+
+		@keyframes hide-bill {
+			0% {
+				opacity: 1;
+				transform: rotate(-90deg) rotateY(20deg);
+			}
+			50% {
+				transform: rotate(-90deg) rotateY(60deg);
+			}
+			100% {
+				opacity: 0;
+				transform: rotate(-90deg) rotateY(85deg);
+			}
+		}
+	</style>
+</head>
+
+<body>
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="row coffee-block">
+				<div class="coffee-btn" onclick="getCoffee(178,'Эспрессо')"></div>
+				<span>Эспрессо - 178 руб</span>
+			</div>
+			<div class="row coffee-block">
+				<div class="coffee-btn" onclick="getCoffee(224,'Капучино')"></div>
+				<span>Капучино - 224 руб</span>
+			</div>
+			<div class="row coffee-block">
+				<div class="coffee-btn" onclick="getCoffee(233,'Латте')"></div>
+				<span>Латте - 233 руб</span>
+			</div>
+			<div class="row coffee-block">
+				<div class="coffee-btn" onclick="getCoffee(317,'Моккачино')"></div>
+				<span>Моккачино - 317 рублей</span>
+			</div>
+			<div class="row coffee-block">
+				<div class="coffee-btn" onclick="getCoffee(49,'Какао')"></div>
+				<span>Какао - 49 руб</span>
+			</div>
+		</div>
+		<div class="col-md-4" id="currencyValidator">
+			<img
+							alt="currencyValidator"
+							class="position-relative w-100"
+							src="../src/img/bill_acc.png"
+			/>
+			<div id="display">Внесите деньги</div>
+			<input
+							data-banknote-value="50"
+							id="amount"
+							placeholder="Сколько у Вас денег?"
+							type="text"
+			/>
+		</div>
+
+		<div class="col-md-4 d-flex flex-column justify-content-center" id="banknotesRow">
+			<img alt="Купюра в 50 рублей" data-banknote-value="" src="../src/img/50rub.jpg"/>
+			<img
+							alt="Купюра в 100 рублей"
+							class="ml-3"
+							data-banknote-value="100"
+							src="../src/img/100rub.jpg"
+			/>
+			<img alt="Купюра в 200 рублей" data-banknote-value="200" src="../src/img/200rub.jpg"/>
+			<img
+							alt="Купюра в 500 рублей"
+							class="ml-3"
+							data-banknote-value="500"
+							src="../src/img/500rub.jpg"
+			/>
+		</div>
+	</div>
+</div>
+
+<script>
+	let money = document.getElementById("money");
+	let display = document.getElementById("display");
+	let banknotes = document.querySelectorAll("img[src$='rub.jpg']");
+	let currencyValidator = document.querySelector("img[src$='acc.png']");
+
+	for (let banknote of banknotes) {
+		banknote.onmousedown = function (event) {
+			banknote = event.currentTarget;
+			banknote.style.position = "absolute";
+			banknote.style.zIndex = 1000;
+			banknote.style.transform = "rotate(90deg)";
+			console.log("Произошло событие mousedown");
+
+			document.addEventListener("mousemove", moveBanknote);
+			banknote.onmouseup = function () {
+				console.log("Произошло событие mouseup");
+				banknote.style.zIndex = 1;
+				let banknote_top = banknote.getBoundingClientRect().top;
+				let banknote_left = banknote.getBoundingClientRect().left;
+				let banknote_right = banknote.getBoundingClientRect().right;
+
+				let currencyValidator_left = currencyValidator.getBoundingClientRect().left;
+				let currencyValidator_top = currencyValidator.getBoundingClientRect().top;
+				let currencyValidator_right = currencyValidator.getBoundingClientRect().right;
+				let currencyValidator_bottom =
+								currencyValidator.getBoundingClientRect().bottom -
+								(currencyValidator.getBoundingClientRect().height / 3) * 2;
+
+				if (
+								banknote_top > currencyValidator_top &&
+								banknote_left > currencyValidator_left &&
+								banknote_right < currencyValidator_right &&
+								banknote_top < currencyValidator_bottom
+				) {
+					console.log("нарушены координаты");
+					banknote.classList.add("animated");
+					setTimeout(() => (banknote.hidden = true), 190);
+					money.value += +money.value + banknote.dataset.banknoteValue;
+				}
+			};
+
+			function moveBanknote(event) {
+				let x = event.clientX - 150;
+				let y = event.clientY - 65;
+				banknote.style.top = y + "px";
+				banknote.style.left = x + "px";
+			}
+		};
+		banknote.ondragstart = function () {
+			return false;
+		};
+
+		function getCoffee(price, name) {
+			if (money.value >= price) {
+				money.value -= price;
+				display.innerHTML = `Ваш ${name} готов!`;
+			} else {
+				display.innerHTML = "Не хватает средств на Ваш " + name;
+			}
+		}
+
+		function getChange(num) {
+			// complexity 4
+			const coins = [10, 5, 2, 1];
+			const counts = [0, 0, 0, 0];
+			const coinValues = ["10 рублей", "5 рублей", "2 рубля", "1 рублю"];
+			let msg = "Ваша сдача в монетках составляет:\n";
+
+			for (let i = 0; i < coins.length; i++) {
+				while (num >= coins[i]) {
+					num -= coins[i];
+					counts[i]++;
+					console.log(coins[i]);
+				}
+				if (counts[i] > 0) {
+					msg += `по ${coinValues[i]} - ${counts[i]} шт;\n`;
+				}
+			}
+			console.log(msg);
+		}
+	}
+</script>
+
+<script
+				crossorigin="anonymous"
+				integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+				src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+></script>
+<script
+				crossorigin="anonymous"
+				integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+				src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+></script>
+</body>
+</html>

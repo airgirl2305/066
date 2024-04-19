@@ -86,28 +86,6 @@
         color: white;
         border-radius: 4px;
       }
-      img[src$="rub.jpg"]:hover {
-        filter: contrast(150%);
-        cursor: pointer;
-      }
-      .animated {
-        animation-name: hide-bill;
-        animation-duration: 0.2s;
-        animation-timing-function: ease-out;
-      }
-      @keyframes hide-bill {
-        0% {
-          opacity: 1;
-          transform: rotate(-90deg) rotateY(20deg);
-        }
-        50% {
-          transform: rotate(-90deg) rotateY(60deg);
-        }
-        100% {
-          opacity: 0;
-          transform: rotate(-90deg) rotateY(85deg);
-        }
-      }
     </style>
   </head>
   <body>
@@ -148,69 +126,16 @@
         </div>
       </div>
       <div class="d-flex flex-wrap justify-content-around money-container">
-        <img src="img/50rub.jpg" alt="" id="test" data-bill-value="50" />
-        <img src="img/100rub.jpg" alt="" data-bill-value="100" />
-        <img src="img/200rub.jpg" alt="" data-bill-value="200" />
-        <img src="img/500rub.jpg" alt="" data-bill-value="500" />
+        <img src="img/50rub.jpg" alt="" />
+        <img src="img/100rub.jpg" alt="" />
+        <img src="img/200rub.jpg" alt="" />
+        <img src="img/500rub.jpg" alt="" />
       </div>
     </div>
 
     <script>
       let money = document.getElementById("money");
       let display = document.getElementById("display");
-      let bills = document.querySelectorAll("img[src$='rub.jpg']");
-      let bill_acc = document.querySelector("img[src$='acc.png']");
-
-      for (let bill of bills) {
-        bill.onmousedown = function (e) {
-          bill = e.currentTarget;
-          bill.style.position = "absolute";
-          bill.style.zIndex = 1000;
-          bill.style.transform = "rotate(90deg)";
-
-          document.addEventListener("mousemove", moveBill);
-
-          bill.onmouseup = function () {
-            document.removeEventListener("mousemove", moveBill);
-            bill.style.zIndex = 1;
-
-            let bill_top = bill.getBoundingClientRect().top;
-            let bill_left = bill.getBoundingClientRect().left;
-            let bill_right = bill.getBoundingClientRect().right;
-
-            let bill_acc_top = bill_acc.getBoundingClientRect().top;
-            let bill_acc_left = bill_acc.getBoundingClientRect().left;
-            let bill_acc_right = bill_acc.getBoundingClientRect().right;
-            let bill_acc_bottom =
-              bill_acc.getBoundingClientRect().bottom -
-              (bill_acc.getBoundingClientRect().height / 3) * 2;
-
-            if (
-              bill_top > bill_acc_top &&
-              bill_left > bill_acc_left &&
-              bill_right < bill_acc_right &&
-              bill_top < bill_acc_bottom
-            ) {
-              bill.classList.add("animated");
-              setTimeout(function () {
-                bill.hidden = true;
-              }, 190);
-              money.value = +money.value + +bill.dataset.billValue;
-            }
-          };
-
-          function moveBill(event) {
-            let x = event.clientX - 150;
-            let y = event.clientY - 65;
-            bill.style.top = y + "px";
-            bill.style.left = x + "px";
-          }
-        };
-
-        bill.ondragstart = function () {
-          return false;
-        };
-      }
 
       function getCoffee(price, name) {
         if (money.value >= price) {
@@ -254,16 +179,9 @@
         }
       }
 
-      // bills.forEach(function (bill) {
-      //   bill.onmousedown = function () {
-      //     console.log("Произошло событие mousedown");
-      //   };
-      // });
-      // for (let i = 0; i < bills.length; i++) {
-      //   bills[i].onmousedown = function () {
-      //     console.log("Произошло событие mousedown");
-      //   }
-      // }
+      ball.ondragstart = function () {
+        return false;
+      };
     </script>
 
     <script
