@@ -1,77 +1,110 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
     <title>Task 12</title>
     <style>
-        #colorsRow,
-        .container {
-            display: flex;
-            justify-content: space-around;
-        }
+      #colorsRow,
+      .container {
+        display: flex;
+        justify-content: space-around;
+      }
 
-        #colorsRow {
-            flex-direction: column;
-        }
+      #colorsRow {
+        flex-direction: column;
+      }
 
-        .small-square {
-            width: 50px;
-            height: 50px;
-            cursor: move;
-        }
+      .small-square {
+        width: 50px;
+        height: 50px;
+        cursor: move;
+      }
 
-        .big-square {
-            width: 200px;
-            height: 200px;
-            background-color: rgba(231, 229, 229, 0.63);
-        }
+      #big-square {
+        width: 200px;
+        height: 200px;
+        background-color: rgba(231, 229, 229, 0.63);
+      }
     </style>
-</head>
+  </head>
 
-<body>
-<div class="container">
-    <div id="colorsRow">
+  <body>
+    <div class="container">
+      <div id="colorsRow">
         <!-- необходим draggable="true" т.к. не ссылка или рисунок, поведение браузера по умолчанию не включает -->
         <div
-                class="small-square"
-                draggable="true"
-                ondragstart="drag(event)"
-                style="background-color: hsl(0, 100%, 45%)"
+          class="small-square"
+          draggable="true"
+          style="background-color: hsl(0, 100%, 45%)"
         ></div>
         <div
-                class="small-square"
-                draggable="true"
-                ondragstart="drag(event)"
-                style="background-color: hsl(80, 91%, 22%)"
+          class="small-square"
+          draggable="true"
+          style="background-color: hsl(80, 91%, 22%)"
         ></div>
         <div
-                class="small-square"
-                draggable="true"
-                ondragstart="drag(event)"
-                style="background-color: hsl(208, 97%, 40%)"
+          class="small-square"
+          draggable="true"
+          style="background-color: hsl(208, 97%, 40%)"
         ></div>
+      </div>
+      <div id="big-square"></div>
     </div>
-    <div class="big-square" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-</div>
 
-<script>
-    let colorSource = queryse
+    <script>
+      let colorSources = document.querySelectorAll(".small-square");
+      let colorTarget = document.getElementById("big-square");
 
-    function allowDrop(event) {
-        event.preventDefault();
-    }
+      for (let color of colorSources) {
+        color.onmousedown = function (event) {
+          color = event.currentTarget;
+          color.style.position = "absolute";
+          color.style.zIndex = 1000;
 
-    function drag(event) {
-        event.dataTransfer.setData("text", event.target.style.backgroundColor);
-    }
+          document.addEventListener("mousemove", moveColor);
 
-    function drop(event) {
-        event.preventDefault();
-        var data = event.dataTransfer.getData("text");
-        event.target.style.backgroundColor = data;
-        event.target.innerHTML = "";
-    }
-</script>
-</body>
+          color.onmouseup = function () {
+            document.removeEventListener("mousemove", moveColor);
+            color.style.zIndex = 1;
+
+            let color_top = color.getBoundingClientRect().top;
+            let color_left = color.getBoundingClientRect().left;
+            let color_right = color.getBoundingClientRect().right;
+
+            let colorTarget_top = colorTarget.getBoundingClientRect().top;
+            let colorTarget_left = colorTarget.getBoundingClientRect().left;
+            let colorTarget_right = colorTarget.getBoundingClientRect().right;
+            let colorTarget_bottom =
+              colorTarget.getBoundingClientRect().bottom -
+              (colorTarget.getBoundingClientRect().height / 3) * 2;
+
+            // если попали
+            if (
+              color_top > colorTarget_top &&
+              color_left > colorTarget_left &&
+              color_right < colorTarget_right &&
+              color_top < colorTarget_bottom
+            ) {
+              color.hidden = true;
+              console.log(color.style.backgroundColor);
+              colorTarget.style.backgroundColor = color.style.backgroundColor;
+            }
+          };
+        };
+
+        function moveColor(event) {
+          // расположение мыши
+          let x = event.clientX - color.offsetWidth / 2;
+          let y = event.clientY - color.offsetHeight / 2;
+          color.style.top = y + "px";
+          color.style.left = x + "px";
+        }
+
+        color.ondragstart = function () {
+          return false;
+        };
+      }
+    </script>
+  </body>
 </html>

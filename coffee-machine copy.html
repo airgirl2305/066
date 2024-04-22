@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400,700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://kit.fontawesome.com/dc4f8560f3.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="favicon.ico" />
-    <title>Кофе-машина</title>
-    <style>
-      /* --charcoal: hsl(203, 30%, 26%);
-      --lapis-lazuli: hsl(206, 46%, 37%);
-      --carolina-blue: hsl(201, 51%, 69%);
-      --hunyadi-yellow: hsl(39, 92%, 57%);
-      --orange-pantone: hsl(21, 89%, 52%); */
+
       body {
         font-family: "Comfortaa", sans-serif;
         background-image: url(img/coffee-wallpaper.jpg);
@@ -32,30 +7,7 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
       }
-      .coffee_block {
-        background-color: hsl(21, 89%, 52%, 0.7);
-        border: 1px solid hsl(203, 30%, 26%);
-        border-radius: 4px;
-        margin-bottom: 1rem;
-        filter: drop-shadow(2px 2px 4px hsl(206, 46%, 40%));
-      }
-      .coffee_btn {
-        width: 0;
-        height: 0;
-        border-top: 50px solid transparent;
-        border-left: 100px solid hsl(39, 92%, 57%);
-        border-bottom: 50px solid transparent;
-        cursor: pointer;
-      }
-      .coffee_btn:hover {
-        width: 0;
-        height: 0;
-        border-top: 50px solid transparent;
-        border-left: 100px solid hsl(39, 92%, 45%);
-        border-bottom: 50px solid transparent;
-        position: relative;
-        left: 3px;
-      }
+
       .coffee_block span {
         font-size: 1.5rem;
         line-height: 100px;
@@ -66,27 +18,7 @@
       .money-container {
         row-gap: 10px;
       }
-      #display {
-        width: 100%;
-        height: 230px;
-        background: linear-gradient(
-          to bottom,
-          hsl(205.93, 50.94%, 31.18%, 0.9),
-          hsl(205.89, 50.39%, 31.04%, 0.7),
-          hsl(205.79, 48.87%, 30.66%, 0.6),
-          hsl(205.6, 46.64%, 30.1%, 0.6),
-          hsl(201.56, 25%, 46.55%, 0.45),
-          hsl(201.37, 27.27%, 53.03%, 0.45),
-          hsl(201.21, 34.02%, 59.12%, 0.4),
-          hsl(201.1, 41.43%, 64.22%, 0.3),
-          hsl(201.03, 47.87%, 67.72%, 0.4)
-        );
-        border: 2px dotted hsl(205, 50%, 25%);
-        text-align: center;
-        padding: 10px;
-        color: white;
-        border-radius: 4px;
-      }
+
       img[src$="rub.jpg"]:hover {
         filter: contrast(150%);
         cursor: pointer;
@@ -153,28 +85,7 @@
   <body>
     <div class="container mt-5">
       <div class="row">
-        <div class="col-md-6">
-          <div class="row coffee_block">
-            <div class="coffee_btn" onclick="getCoffee(178, 'Эспрессо')"></div>
-            <span>Эспрессо - 178 руб</span>
-          </div>
-          <div class="row coffee_block">
-            <div class="coffee_btn" onclick="getCoffee(224, 'Капучино')"></div>
-            <span>Капучино - 224 руб</span>
-          </div>
-          <div class="row coffee_block">
-            <div class="coffee_btn" onclick="getCoffee(233, 'Латте')"></div>
-            <span>Латте - 233 руб</span>
-          </div>
-          <div class="row coffee_block">
-            <div class="coffee_btn" onclick="getCoffee(317, 'Моккачино')"></div>
-            <span>Моккачино - 317 руб</span>
-          </div>
-          <div class="row coffee_block">
-            <div class="coffee_btn" onclick="getCoffee(49, 'Какао')"></div>
-            <span>Какао - 49 руб</span>
-          </div>
-        </div>
+
         <div class="col-md-6">
           <div class="row">
             <div class="col-md-6">
@@ -356,15 +267,3 @@
       // }
     </script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>

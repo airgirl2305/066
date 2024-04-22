@@ -1,279 +1,435 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-	<meta charset="utf-8"/>
-	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
-	<link
-					crossorigin="anonymous"
-					href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-					integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-					rel="stylesheet"
-	/>
-	<link href="https://fonts.googleapis.com" rel="preconnect"/>
-	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-	<link
-					href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&display=swap"
-					rel="stylesheet"
-	/>
-	<link href="src/favicon.ico" rel="icon"/>
-	<title>Кофе-машина</title>
-	<style>
-		body {
-			font-family: "Lobster", sans-serif;
-			color: hsl(199, 27%, 18%);
-			background-image: url("https://images.unsplash.com/photo-1606462531411-bd77abcb7c57");
-			background-size: 1900px;
-			background-position: center;
-			/*background-size: 100%;*/
-			/*background-position: cover;*/
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			box-sizing: border-box;
-			max-width: 1900px;
-			/* TODO position кривит без медиа запросов 576px-768px-992px-1200px*/
-			margin: auto;
-		}
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/134030b512.js"></script>
+    <link href="src/favicon.ico" rel="icon" />
+    <title>Кофе-машина</title>
+    <style>
+      :root {
+        --lightest: hsl(31, 33%, 88%);
+        --beige: hsl(40, 44%, 80%);
+        --accent: hsl(61, 94%, 50%);
+        --gray: hsl(168, 26%, 18%);
+        --gray-dark: hsl(230, 13%, 9%);
+        --brown-light: hsl(32, 30%, 45%);
+        --brown-dark: hsl(22, 71%, 7%);
+        --green-light: hsl(189, 21%, 32%);
+        --green-bright: hsl(149, 24%, 28%);
+        --darkest: 189, 21%, 22%;
+      }
 
-		.coffee-block {
-			display: flex;
-			align-items: center;
-			border: 1px solid hsl(33, 20%, 31%);
-			border-radius: 35%;
-			margin-bottom: 1rem;
-			filter: drop-shadow(6px 3px 6px hsl(19, 22%, 25%));
-			background: linear-gradient(to bottom right, hsl(31, 33%, 88%), hsl(32, 30%, 45%));
-		}
+      html {
+        @media (min-width: 768px) {
+          font-size: 11px;
+        }
+        @media (min-width: 992px) {
+          font-size: 11px;
+        }
+      }
 
-		.coffee-btn {
-			width: 45px;
-			height: 45px;
-			border-radius: 50%;
-			background-color: hsl(199, 27%, 18%);
-			cursor: pointer;
-			margin: 0 1rem 0 8px;
-		}
+      body {
+        max-width: 1900px;
+        font-family: "Lobster", sans-serif;
+        color: var(--brown-dark);
+        background-image: url("https://images.unsplash.com/photo-1606462531411-bd77abcb7c57");
+        background-size: 1900px;
+        background-position: center;
+        /*background-size: 100%;*/
+        /*background-position: cover;*/
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        box-sizing: border-box;
+        /* TODO position кривит без медиа запросов 576px-768px-992px-1200px*/
+      }
 
-		.coffee-btn:hover {
-			background-color: hsl(188.82deg 20.99% 31.76%);
-			/* TODO переписать на процент в hsla */
-		}
+      .coffee-block {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--brown-dark);
+        border-radius: 35%;
+        filter: drop-shadow(6px 3px 6px var(--brown-dark));
+        background: linear-gradient(to bottom right, var(--lightest), var(--brown-light));
+      }
 
-		.coffee-block span {
-			font-size: 1.5rem;
-			line-height: 100px;
-		}
+      .coffee-btn {
+        width: 2.25rem;
+        height: 2.25rem;
+        margin: 0 1rem 0 8px;
+        border-radius: 50%;
+        background-color: hsl(var(--darkest));
+        cursor: pointer;
+      }
 
-		#currencyValidator {
-			position: relative;
-		}
+      .coffee-btn:hover {
+        background-color: hsla(var(--darkest), 0.8);
+      }
 
-		#amount {
-			font-size: 1.5rem;
-			text-align: center;
-			width: 83%;
-			height: 11%;
-			position: absolute;
-			left: 9.25%;
-			top: 9.2%;
-			border-radius: 12px;
-		}
+      .coffee-block span {
+        font-size: 1.4rem;
+        line-height: 6rem;
+      }
 
-		#display {
-			height: 29.15%;
-			width: 78.3%;
-			position: absolute;
-			top: 35%;
-			left: 10.45%;
-			font-family: "Caveat", sans-serif;
-			font-size: 1.6rem;
-			text-align: center;
-			color: rgba(226, 211, 181, 1);
-			background: rgba(226, 211, 181, 1);
-			background: radial-gradient(circle, rgba(226, 211, 181, 1) 0%, rgb(30, 14, 5) 100%);
-			border: 2px dotted hsl(60, 2%, 13%);
-		}
+      #amount {
+        width: 82%;
+        height: 8%;
+        position: absolute;
+        left: 9.25%;
+        top: 9.2%;
+        font-size: 1.5rem;
+        text-align: center;
+        border-radius: 12px;
+      }
 
-		img[src$="rub.jpg"] {
-			filter: contrast(150%);
-			cursor: move;
-			width: 88%;
-		}
+      #display {
+        position: absolute;
+        width: 79%;
+        height: 26%;
+        top: 30.8%;
+        left: 9.9%;
+        text-align: center;
+        color: var(--brown-dark);
+        font-family: "Caveat", sans-serif;
+        font-size: 1.8rem;
+        background: radial-gradient(circle, var(--lightest) 0%, var(--brown-dark) 100%);
+        border: 2px dotted var(--brown-dark);
 
-		.animated {
-			animation-name: hide-banknote;
-			animation-duration: 0.2s;
-			/* время анимации в мл/с */
-			animation-timing-function: ease-out;
-		}
+        @media (min-width: 1200px) {
+          // перестало работать
+        }
+        /*
+             @media (min-width: 992px) {
+                         // не работает
+               width: 55rem;
+               height: 20rem;
+               top: 10%;
+               left: 9%;
+             }
+             @media (min-width: 768px) {
+               width: 666%;
+               height: 15%;
+               top: 20%;
+               left: 9%;
+             } */
+        @media (min-width: 576px) {
+        }
+      }
 
-		@keyframes hide-bill {
-			0% {
-				opacity: 1;
-				transform: rotate(-90deg) rotateY(20deg);
-			}
-			50% {
-				transform: rotate(-90deg) rotateY(60deg);
-			}
-			100% {
-				opacity: 0;
-				transform: rotate(-90deg) rotateY(85deg);
-			}
-		}
-	</style>
-</head>
+      img[src$="rub.jpg"] {
+        cursor: move;
+      }
 
-<body>
-<div class="container mt-5">
-	<div class="row">
-		<div class="col-md-4">
-			<div class="row coffee-block">
-				<div class="coffee-btn" onclick="getCoffee(178,'Эспрессо')"></div>
-				<span>Эспрессо - 178 руб</span>
-			</div>
-			<div class="row coffee-block">
-				<div class="coffee-btn" onclick="getCoffee(224,'Капучино')"></div>
-				<span>Капучино - 224 руб</span>
-			</div>
-			<div class="row coffee-block">
-				<div class="coffee-btn" onclick="getCoffee(233,'Латте')"></div>
-				<span>Латте - 233 руб</span>
-			</div>
-			<div class="row coffee-block">
-				<div class="coffee-btn" onclick="getCoffee(317,'Моккачино')"></div>
-				<span>Моккачино - 317 рублей</span>
-			</div>
-			<div class="row coffee-block">
-				<div class="coffee-btn" onclick="getCoffee(49,'Какао')"></div>
-				<span>Какао - 49 руб</span>
-			</div>
-		</div>
-		<div class="col-md-4" id="currencyValidator">
-			<img
-							alt="currencyValidator"
-							class="position-relative w-100"
-							src="../src/img/bill_acc.png"
-			/>
-			<div id="display">Внесите деньги</div>
-			<input
-							data-banknote-value="50"
-							id="amount"
-							placeholder="Сколько у Вас денег?"
-							type="text"
-			/>
-		</div>
+      img[src$="rub.png"] {
+        width: 60px;
+        position: absolute;
+      }
 
-		<div class="col-md-4 d-flex flex-column justify-content-center" id="banknotesRow">
-			<img alt="Купюра в 50 рублей" data-banknote-value="" src="../src/img/50rub.jpg"/>
-			<img
-							alt="Купюра в 100 рублей"
-							class="ml-3"
-							data-banknote-value="100"
-							src="../src/img/100rub.jpg"
-			/>
-			<img alt="Купюра в 200 рублей" data-banknote-value="200" src="../src/img/200rub.jpg"/>
-			<img
-							alt="Купюра в 500 рублей"
-							class="ml-3"
-							data-banknote-value="500"
-							src="../src/img/500rub.jpg"
-			/>
-		</div>
-	</div>
-</div>
+      img[alt="монетка"]:hover {
+        z-index: 1000;
+        cursor: pointer;
+        filter: contrast(150%);
+      }
 
-<script>
-	let money = document.getElementById("money");
-	let display = document.getElementById("display");
-	let banknotes = document.querySelectorAll("img[src$='rub.jpg']");
-	let currencyValidator = document.querySelector("img[src$='acc.png']");
+      @keyframes hide-banknote {
+        0% {
+          opacity: 1;
+          transform: rotate(-90deg) rotateY(20deg);
+        }
+        50% {
+          transform: rotate(-90deg) rotateY(60deg);
+        }
+        100% {
+          opacity: 0;
+          transform: rotate(-90deg) rotateY(85deg);
+        }
+      }
 
-	for (let banknote of banknotes) {
-		banknote.onmousedown = function (event) {
-			banknote = event.currentTarget;
-			banknote.style.position = "absolute";
-			banknote.style.zIndex = 1000;
-			banknote.style.transform = "rotate(90deg)";
-			console.log("Произошло событие mousedown");
+      .progress {
+        padding-top: 6px;
+        height: 1.6rem;
+        border-radius: 1rem;
+        border: dotted 1px var(--accent);
+      }
 
-			document.addEventListener("mousemove", moveBanknote);
-			banknote.onmouseup = function () {
-				console.log("Произошло событие mouseup");
-				banknote.style.zIndex = 1;
-				let banknote_top = banknote.getBoundingClientRect().top;
-				let banknote_left = banknote.getBoundingClientRect().left;
-				let banknote_right = banknote.getBoundingClientRect().right;
+      .progress-bar {
+        background-color: var(--accent);
+        color: black;
+      }
 
-				let currencyValidator_left = currencyValidator.getBoundingClientRect().left;
-				let currencyValidator_top = currencyValidator.getBoundingClientRect().top;
-				let currencyValidator_right = currencyValidator.getBoundingClientRect().right;
-				let currencyValidator_bottom =
-								currencyValidator.getBoundingClientRect().bottom -
-								(currencyValidator.getBoundingClientRect().height / 3) * 2;
+      .fa-regular,
+      .fa-solid {
+        color: var(--accent);
+      }
 
-				if (
-								banknote_top > currencyValidator_top &&
-								banknote_left > currencyValidator_left &&
-								banknote_right < currencyValidator_right &&
-								banknote_top < currencyValidator_bottom
-				) {
-					console.log("нарушены координаты");
-					banknote.classList.add("animated");
-					setTimeout(() => (banknote.hidden = true), 190);
-					money.value += +money.value + banknote.dataset.banknoteValue;
-				}
-			};
+      #display-info {
+        padding-top: 6px;
+      }
 
-			function moveBanknote(event) {
-				let x = event.clientX - 150;
-				let y = event.clientY - 65;
-				banknote.style.top = y + "px";
-				banknote.style.left = x + "px";
-			}
-		};
-		banknote.ondragstart = function () {
-			return false;
-		};
+      #change-box {
+        width: 100%;
+        height: 200px;
+        position: relative;
+        margin-top: 1rem;
+        background-color: hsla(var(--darkest), 0.7);
+        border: 2px solid var(--darkest);
+        border-radius: 34px;
+      }
 
-		function getCoffee(price, name) {
-			if (money.value >= price) {
-				money.value -= price;
-				display.innerHTML = `Ваш ${name} готов!`;
-			} else {
-				display.innerHTML = "Не хватает средств на Ваш " + name;
-			}
-		}
+      .get-change {
+        margin-top: 1rem;
+        background-color: hsl(19, 22%, 25%, 0.9);
+        border: 0;
+        color: rgba(226, 211, 181, 1);
+      }
 
-		function getChange(num) {
-			// complexity 4
-			const coins = [10, 5, 2, 1];
-			const counts = [0, 0, 0, 0];
-			const coinValues = ["10 рублей", "5 рублей", "2 рубля", "1 рублю"];
-			let msg = "Ваша сдача в монетках составляет:\n";
+      .get-change:hover {
+        background-color: hsl(19, 22%, 25%, 0.75);
+      }
 
-			for (let i = 0; i < coins.length; i++) {
-				while (num >= coins[i]) {
-					num -= coins[i];
-					counts[i]++;
-					console.log(coins[i]);
-				}
-				if (counts[i] > 0) {
-					msg += `по ${coinValues[i]} - ${counts[i]} шт;\n`;
-				}
-			}
-			console.log(msg);
-		}
-	}
-</script>
+      #banknotes-column {
+        row-gap: 10px;
+      }
 
-<script
-				crossorigin="anonymous"
-				integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-				src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-></script>
-<script
-				crossorigin="anonymous"
-				integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-				src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-></script>
-</body>
+      #chosen-banknote {
+        width: 510px;
+        height: 218px;
+        position: absolute;
+        z-index: 1000;
+        transform: rotate(90deg);
+      }
+
+      .animated-banknote {
+        animation-name: hide-banknote;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row coffee-block">
+            <div class="coffee-btn" onclick="getCoffee(178,'Эспрессо')"></div>
+            <span>Эспрессо - 178 руб</span>
+          </div>
+          <div class="row coffee-block">
+            <div class="coffee-btn" onclick="getCoffee(224,'Капучино')"></div>
+            <span>Капучино - 224 руб</span>
+          </div>
+          <div class="row coffee-block">
+            <div class="coffee-btn" onclick="getCoffee(233,'Латте')"></div>
+            <span>Латте - 233 руб</span>
+          </div>
+          <div class="row coffee-block">
+            <div class="coffee-btn" onclick="getCoffee(317,'Моккачино')"></div>
+            <span>Моккачино - 317 рублей</span>
+          </div>
+          <div class="row coffee-block">
+            <div class="coffee-btn" onclick="getCoffee(49,'Какао')"></div>
+            <span>Какао - 49 руб</span>
+          </div>
+        </div>
+
+        <div class="col-md-4" id="currencyValidator">
+          <img
+            alt="currencyValidator"
+            class="position-relative w-100"
+            src="../src/img/bill_acc.png"
+          />
+          <label for="amount"
+            ><input id="amount" placeholder="Сколько у Вас денег?" type="hidden"
+          /></label>
+          <div id="display">
+            <p id="display-info"><i class="fa-solid fa-mug-saucer"></i> &nbsp; Внесите деньги</p>
+            <div class="progress" hidden>
+              <div class="progress-bar"></div>
+            </div>
+            <p id="balance"><i class="fa-solid fa-piggy-bank"></i> &nbsp; Баланс: 0 руб.</p>
+          </div>
+          <button
+            class="btn btn-block btn-lg get-change"
+            disabled
+            onclick="getChange(amount.value)"
+          >
+            Забрать сдачу
+          </button>
+          <div id="change-box"></div>
+        </div>
+
+        <div
+          class="col-md-4 d-flex flex-column justify-content-center gap-row-3"
+          id="banknotes-column"
+        >
+          <img alt="Купюра в 50 рублей" data-banknote-value="50" src="../src/img/50rub.jpg" />
+          <img alt="Купюра в 100 рублей" data-banknote-value="100" src="../src/img/100rub.jpg" />
+          <img alt="Купюра в 200 рублей" data-banknote-value="200" src="../src/img/200rub.jpg" />
+          <img alt="Купюра в 500 рублей" data-banknote-value="500" src="../src/img/500rub.jpg" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let amount = document.getElementById("amount");
+      let display = document.getElementById("display-info");
+      let banknotes = document.querySelectorAll("img[src$='rub.jpg']");
+      let currencyValidator = document.querySelector("img[src$='acc.png']");
+      let balance = document.getElementById("balance");
+      let changeBox = document.getElementById("change-box");
+
+      for (let banknote of banknotes) {
+        banknote.onmousedown = function (e) {
+          /* Событие в момент нажатия на кнопку мыши */
+          document.body.appendChild(
+            banknote
+          ); /* перемещение в body, так draggable точно не внутри position:relative */
+          banknote = e.currentTarget;
+          banknote.id = "chosen-banknote";
+
+          document.addEventListener("mousemove", moveBanknote); // по движению, двигаем функцией
+
+          banknote.onmouseup = function () {
+            /* открепили мышь - сняли прослушиватель с функцией переноса */
+
+            document.removeEventListener("mousemove", moveBanknote);
+
+            banknote.style.zIndex = 1; // перестал быть на верхнем слое
+
+            let banknote_top = banknote.getBoundingClientRect().top;
+            let banknote_left = banknote.getBoundingClientRect().left;
+            let banknote_right = banknote.getBoundingClientRect().right;
+
+            let currencyValidator_left = currencyValidator.getBoundingClientRect().left;
+            let currencyValidator_top = currencyValidator.getBoundingClientRect().top;
+            let currencyValidator_right = currencyValidator.getBoundingClientRect().right;
+            let currencyValidator_bottom =
+              currencyValidator.getBoundingClientRect().bottom -
+              (currencyValidator.getBoundingClientRect().height / 3) * 2;
+
+            if (
+              banknote_top > currencyValidator_top &&
+              banknote_left > currencyValidator_left &&
+              banknote_right < currencyValidator_right &&
+              banknote_top < currencyValidator_bottom
+            ) {
+              banknote.classList.add("animated");
+              setTimeout(() => (banknote.hidden = true), 190);
+              amount.value = +amount.value + +banknote.dataset.banknoteValue;
+              balance.innerHTML = `<i class="fa-solid fa-piggy-bank"></i> &nbsp; Баланс: ${amount.value} руб.`;
+
+              document.getElementsByClassName("get-change")[0].removeAttribute("disabled");
+            }
+          };
+
+          function moveBanknote(e) {
+            /* clientX/Y (viewport) - pageX/Y предпочитаю - screenX/Y */
+            let y = e.pageY - banknote.offsetHeight / 2;
+            let x = e.pageX - banknote.offsetWidth / 2;
+            banknote.style.top = y + "px";
+            banknote.style.left = x + "px";
+          }
+        };
+
+        banknote.ondragstart = function () {
+          /* Событие начало перемещения элемента */
+          return false;
+        };
+      }
+      function getChange(sum) {
+        let sound = new Audio("src/change.mp3");
+        document.getElementsByClassName("get-change")[0].disabled = true;
+        balance.innerHTML = `<p><i class="fa-solid fa-piggy-bank"></i> &nbsp; Ваша &nbsp; сдача:&nbsp; ${sum} &nbsp; ${
+          sum.slice(-1) == 2 ? "рубля" : sum.slice(-1) == 1 ? "рубль" : "рублей"
+        }</p>`;
+
+        function getRandom(min, max) {
+          return (
+            Math.random() * (max - min) + min
+          ); /* никогда не выйдем за диапазон Math.random() Псевдослучайное число с плавающей запятой от 0 (включительно) до 1 (не включая). */
+        }
+
+        const nominalArr = [10, 5, 2, 1];
+        const countsArr = [0, 0, 0, 0];
+
+        for (let i = 0; i < nominalArr.length; i++) {
+          while (sum >= nominalArr[i]) {
+            sum -= nominalArr[i];
+            countsArr[i]++;
+            let top = getRandom(0, changeBox.getBoundingClientRect().height - 65); // это корректировка на их середину, чтобы не вылезали за границу
+            let left = getRandom(0, changeBox.getBoundingClientRect().width - 65);
+            changeBox.innerHTML += `<img src="src/img/${nominalArr[i]}rub.png" style="top: ${top}px; left: ${left}px" alt="монетка" data-coin-value ${nominalArr[i]} />`;
+          }
+        }
+        amount.value = 0;
+        sound.play();
+
+        let coins = document.querySelectorAll("img[alt='монетка']"); /* img[src$='rub.png']"); */
+        console.log(coins);
+        coins.forEach((coin) => {
+          coin.addEventListener("click", function () {
+            coin.style.display = "none";
+          });
+        });
+      }
+      function getCoffee(price, name) {
+        if (amount.value >= price) {
+          amount.value -= price;
+          balance.innerHTML = `<i class="fa-solid fa-piggy-bank"></i> &nbsp; Баланс: ${amount.value} руб.`;
+          startProgressBar(name);
+        } else {
+          display.innerHTML = `<i class="fa-regular fa-face-sad-tear"></i> &nbsp; Не хватает средств на ${name}`;
+        }
+      }
+
+      function startProgressBar(drinkName) {
+        let i = 0;
+        let progressBar = document.querySelector(".progress-bar");
+        progressBar.parentElement.hidden = false;
+
+        function progress() {
+          i++;
+          progressBar.style.width = i + "%";
+          progressBar.innerText = i + "%";
+          if (i === 100) {
+            clearInterval(timerId);
+            progressBar.style.width = 0 + "%";
+            progressBar.parentElement.hidden = true;
+            display.innerHTML = `<i class="fa-regular fa-face-smile fa-fade"></i> &nbsp; Ваш  ${drinkName} готов!`;
+          } else if (i === 5) {
+            display.innerHTML = `<i class="fa-regular fa-clock fa-shake"></i> &nbsp; Приготовление ${drinkName} началось`;
+          } else if (i === 80) {
+            display.innerHTML = `<i class="fa-regular fa-clock fa-shake"></i> &nbsp; ${drinkName} почти готов`;
+          }
+        }
+
+        let timerId = setInterval(progress, 100);
+      }
+    </script>
+
+    <script
+      crossorigin="anonymous"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    ></script>
+    <script
+      crossorigin="anonymous"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </body>
 </html>
