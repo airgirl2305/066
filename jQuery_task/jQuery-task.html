@@ -2,70 +2,89 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Practical task. jQuery</title>
-    <script type="text/javascript" src="jquery.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!--  Задание: Создать модальное окно с плавным открытием/закрытием модального окна.-->
-
     <style>
-      .wrapper {
-        width: 100%;
-
-      }
       button {
+        width: 14rem;
+        height: 8rem;
+        display: block;
+        margin: 15% auto;
         background: yellow;
         font-weight: bold;
+        font-size: xx-large;
+        border-radius: 20px;
       }
 
-      .window-opened {
-        position: relative;
-        opacity: 1;
-        width: 300px;
-        height: 200px;
-        /* z-index: 1000; */
+      .modal-window {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /*scroll if needed*/
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-window-content {
+        width: 50%;
+        margin: 15% auto;
+        padding: 20px;
+        color: #0069d9;
+        border: 1px solid #888;
         background-color: #8ec5fc;
         background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
       }
-      @keyframes close-modal {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      .window-closed {
-        animation-name: close-modal;
-        animation-duration: 0.2s;
-        animation-timing-function: ease-out;
-      }
+
       .close-sign {
         color: pink;
-        font-size: 20px;
+        float: right;
+        font-size: 30px;
         font-weight: bold;
-        position: relative;
-        left: 280px;
-        top: 4px
       }
-      .close-sign:focus,
-      .close-sign:hover {
+
+      .close-sign:hover,
+      .close-sign:focus {
         color: deeppink;
         cursor: pointer;
       }
-      p {
-        text-align: center;
-      }
-
     </style>
   </head>
   <body>
-    <div class="wrapper">
-      <div class="window-opened">
-        <p>modal window content</p>
+    <button id="open-button">OPEN</button>
+
+    <div class="modal-window">
+      <div class="modal-window-content">
         <span class="close-sign">&times;</span>
+        <!--   X-sign-->
+        <p>
+          Content... Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet animi at
+          atque blanditiis consequatur corporis eius in ipsa maxime minus nihil nostrum, sed sit
+          sunt vero voluptates! At, facere.
+        </p>
       </div>
-      <button>Open modal window</button>
     </div>
+    <script>
+      $(document).ready(function () {
+        // will only run once the page Document Object Model (DOM) is ready for JavaScript code to execute
+        // openning our modal window
+        $("#open-button").click(function () {
+          $(".modal-window").fadeIn(); //.toggleClass("opened");
+          $("#open-button").attr("style", "display: none;");
+        });
+
+        // closing window
+        $(".close-sign").click(function () {
+          $(".modal-window").fadeOut("slow"); //.toggleClass("opened");
+          $("#open-button").fadeToggle("fast");
+        });
+      });
+    </script>
   </body>
 </html>

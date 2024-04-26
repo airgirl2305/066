@@ -10,7 +10,6 @@
 // @match        https://www.google.com/*
 // @match        https://www.phind.com/*
 // @match        https://you.com/*
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // ==/UserScript==
 
@@ -30,7 +29,6 @@ let keywords = [
 ];
 
 let keyword = keywords[getRandom(keywords.length, 0)];
-
 
 
 if ((location.href = "https://nigma")) {
