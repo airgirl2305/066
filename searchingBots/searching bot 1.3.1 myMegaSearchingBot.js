@@ -48,8 +48,9 @@ let sitesKeys = Object.keys(sites);
 let site = sitesKeys[getRandom(0, sitesKeys.length)];
 let keywords = sites[site];
 let keyword = keywords[getRandom(0, keywords.length)];
+console.log(keyword);
 let links = document.links;
-let mouseClick = new MouseEvent("click"); //?
+// let mouseClick = new MouseEvent("click"); //?
 
 if (location.href == "https://www.bing.com/") {
   searchEngine = "https://www.bing.com/";
@@ -99,19 +100,19 @@ if (location.href == "https://www.bing.com/") {
 if (button !== undefined) {
   // search button is only in the main page
 
-  input.focus();
-  input.dispatchEvent(mouseClick);
-  input.value = keyword;
-  button.click();
-  // let i = 0;
-  // let timerId = setInterval(() => {
-  //   input.value += keyword[i];
-  //   i++;
-  //   if (i == keyword.length) {
-  //     clearInterval(timerId);
-  //     button.click();
-  //   }
-  // }, 150);
+  // input.focus();
+  // input.dispatchEvent(mouseClick);
+  // input.value = keyword;
+  // button.click();
+  let i = 0;
+  let timerId = setInterval(() => {
+    input.value += keyword[i];
+    i++;
+    if (i == keyword.length) {
+      clearInterval(timerId);
+      button.click();
+    }
+  }, 150);
 
   document.cookie = `site=${site}`;
   console.log("we are on the main page, cookie", cookie);
