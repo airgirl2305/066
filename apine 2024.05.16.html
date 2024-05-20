@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- указать версию вместо x для стабильности -->
+    <title>Alpine JS</title>
+  </head>
+  <body>
+    <!-- "{js}" -->
+    <div
+      x-data="{
+    newText:'',
+people: ['Ivan', 'Pavel'],
+addPerson() {
+  this.people.push(this.newText);
+}
+}"
+    >
+      <form x-on:submit.prevent="addPerson">
+        <!-- .prevent отключение перезагрузки по умолчанию браузером -->
+        <input type="text" x-model="newText" />
+      </form>
+      <ul>
+        <!-- x-for цикл -->
+        <template x-for="person in people">
+          <li x-text="person"></li>
+        </template>
+      </ul>
+    </div>
+    <!-- <button x-data x-on:click="alert('Прозошел клик')">Нажми на меня</button>
+<button x-data @click="alert('Прозошел клик')">Нажми на меня</button> -->
+    <!-- x-data компонент alpine -->
+    <!-- x-on: или @ -->
+    <!-- <div x-data='{message:"Hello!"}'>
+  <input type="text" x-model.lazy='message'>
+  <p>Message: <strong x-text='message'></strong></p>
+</div> -->
+    <!-- <button>Нажми на меня</button>
+<button>Нажми на меня</button> -->
+    <script>
+      // let button = document.querySelector("button"); // не работает на несколько кнопок
+      // button.addEventListener('click', ()=> {alert("Произошел клик")});
+    </script>
+  </body>
+</html>
