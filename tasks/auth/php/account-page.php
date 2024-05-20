@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Страница личного кабинета</title>
+  <title> Personal account page </title>
   <style>
     body {
       background-color: beige;
@@ -85,24 +85,24 @@
 <body>
 
   <div class="container">
-    <h1>Личный кабинет пользователя</h1>
+    <h1>Account page</h1>
     <p>
-      <span>Id: </span>
+      <span>ID: </span>
       <span><?php echo $_SESSION["id"]; ?></span>
     </p>
     <p>
       <span>Имя: </span>
       <span><?php echo $_SESSION["name"]; ?></span>
-      <span class="edit-btn"> Изменить </span>
-      <span class="save-btn" hidden data-item="name"> Сохранить </span>
-      <span class="cancel-btn" hidden> Отменить </span>
+      <span class="edit-btn"> edit </span>
+      <span class="save-btn" hidden> save </span>
+      <span class="cancel-btn" hidden> cancel </span>
     </p>
     <p>
       <span>Фамилия: </span>
       <span><?php echo $_SESSION["lastname"]; ?></span>
-      <span class="edit-btn"> Изменить </span>
-      <span class="save-btn" hidden data-item="lastname"> Сохранить </span>
-      <span class="cancel-btn" hidden> Отменить </span>
+      <span class="edit-btn"> change </span>
+      <span class="save-btn" hidden> save </span>
+      <span class="cancel-btn" hidden> cancel </span>
     </p>
     <p>
       <span>Email: </span>
@@ -117,40 +117,13 @@
 
     for (let i = 0; i < edit_buttons.length; i++) {
 
-      let inputValue = edit_buttons[i].previousElementSibling.innerText;
-
       edit_buttons[i].addEventListener("click", () => {
+        let inputValue = edit_buttons[i].previousElementSibling.innerText;
         edit_buttons[i].previousElementSibling.innerHTML = `<input type="text" value="${inputValue}">`;
         edit_buttons[i].hidden = true;
         save_buttons[i].hidden = false;
         cancel_buttons[i].hidden = false;
       })
-
-      cancel_buttons[i].addEventListener("click", () => {
-        edit_buttons[i].previousElementSibling.innerText = inputValue;
-        edit_buttons[i].hidden = false;
-        save_buttons[i].hidden = true;
-        cancel_buttons[i].hidden = true;
-      })
-
-      save_buttons[i].addEventListener("click", async () => {
-        let newInputValue = edit_buttons[i].previousElementSibling.firstElementChild.value;
-        edit_buttons[i].previousElementSibling.innerText = newInputValue;
-
-        edit_buttons[i].hidden = false;
-        save_buttons[i].hidden = true;
-        cancel_buttons[i].hidden = true;
-
-        let formData = new FormData();
-        formData.append("value", newInputValue);
-        formData.append("item", save_buttons[i].dataset.item)
-
-        let response = await fetch("php/lk_obr.php", {
-          method: "POST",
-          body: formData
-        });
-      })
-
 
     }
   </script>
