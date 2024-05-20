@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      :root {
+        --primary-color: rgb(115, 115, 156);
+        --unit: 2rem;
+        --primary-h: 150;
+        --primary-s: 55%;
+        --primary-l: 40%;
+      }
+      .section-title {
+        color: var(--primary-color);
+        margin-bottom: var(--unit);
+      }
+      .article {
+        /* возможна перезапись */
+        --primary-color: rgb(197, 72, 72);
+        background-color: var(--primary-color);
+        color: aliceblue;
+      }
+      .btn {
+        background-color: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+      }
+      .btn:hover {
+        --primary-l: 20%;
+      }
+    </style>
+  </body>
+</html>

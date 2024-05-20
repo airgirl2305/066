@@ -16,7 +16,9 @@ if ($url[1] == "login") {
   $content = file_get_contents("pages/tracking-order.html");
 } else if ($url[1] == "users") {
   require_once("pages/users/index.html");
-} else if ($url[1] == "regUser") {
+}  else if ($url[1] == "vite") {
+    require_once("vite/index.html");
+}else if ($url[1] == "regUser") {
   echo User::addUser($_POST["name"], $_POST["surname"], $_POST["email"], $_POST["password"]);
 } else if ($url[1] == "authUser") {
   echo User::authUser($_POST["email"], $_POST["password"]);
