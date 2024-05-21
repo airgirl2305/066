@@ -1,5 +1,5 @@
 <?php
-
+header("Access-Control-Allow-Origin: *");
 session_start();
 
 $url = explode("/", $_SERVER["REQUEST_URI"]);
